@@ -28,9 +28,7 @@
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "~0.19.6",
     "react-svg": "^16.1.27",
-    "undefined": "react-spring/native",
-    "expo-font": "~11.4.0",
-    "expo-splash-screen": "~0.20.5"
+    "expo-font": "~11.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
