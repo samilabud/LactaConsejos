@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { StyleSheet, ActivityIndicator, View, Text, Image } from "react-native";
 import { Header as HeaderRNE } from "@rneui/themed";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useSpring, animated } from "@react-spring/web";
-// import { MaterialCommunityIcons } from '@expo/vector-icons';
+import {LinearGradient} from 'expo-linear-gradient';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Font from "expo-font";
 
 type HeaderComponentProps = {
@@ -12,16 +13,21 @@ type HeaderComponentProps = {
 };
 
 const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
-  const [fontLoaded, setFontLoaded] = useState(false);
+  // const [fontLoaded, setFontLoaded] = useState(false);
+  const insets = useSafeAreaInsets();
+  const theFont = {
+    "Lobster-Regular": require("../../assets/fonts/Lobster-Regular.ttf"),
+  };
+
+  const [fontLoaded] = Font.useFonts(theFont)
   useEffect(() => {
     async function loadFonts() {
-      await Font.loadAsync({
-        "lobster-two-regular": require("../../assets/fonts/LobsterTwo-Regular.ttf"),
-      });
-      setFontLoaded(true);
+      
+      // await Font.loadAsync(theFont);
+      // setFontLoaded(true);
     }
 
-    loadFonts();
+    // loadFonts();
   }, []);
   const AnimatedView = animated(View);
   const { x } = useSpring({
@@ -31,8 +37,15 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
   });
 
   return (
-    <SafeAreaProvider>
       <HeaderRNE
+        ViewComponent={LinearGradient}
+        linearGradientProps={{
+          colors: ['#D897A5', '#E2BAC3'],
+          start: { x: 0, y: 0.5 },
+          end: { x: 0, y: 1 },
+        }}
+        statusBarProps={{hidden:true}}
+        elevated={true}
         leftComponent={
           <Image
             source={require("./breastfeeding-mother.png")}
@@ -53,32 +66,29 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
             <Text style={styles.heading}>Lacta Consejos</Text>
           </AnimatedView>)
         }
-        // rightComponent={
-        //   <MaterialCommunityIcons name="mother-nurse" size={24} color="white" />
-        // }
+        rightComponent={
+          <MaterialCommunityIcons style={styles.contactIcon} name="mother-nurse" size={24} color="white" />
+        }
         containerStyle={styles.headerContainer}
       />
-    </SafeAreaProvider>
   );
 };
 
+
 const styles = StyleSheet.create({
-  box: {
-    backgroundColor: "lightblue",
-    padding: 20,
-    borderRadius: 10,
+  contactIcon: {
+    marginTop: 8,
   },
   headerContainer: {
-    backgroundColor: "#397af8",
-    marginBottom: 20,
+    paddingVertical: 15,
     width: "100%",
-    paddingVertical: 20,
+    marginBottom: -2,
   },
   heading: {
-    color: "white",
-    fontSize: 24,
-    fontWeight: "bold",
-    fontFamily: "lobster-two-regular",
+    color: "#C10949",
+    fontSize: 32,
+    // fontWeight: "bold",
+    fontFamily: "Lobster-Regular",
   },
   logo: {
     width: 50,

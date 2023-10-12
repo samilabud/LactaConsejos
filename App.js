@@ -4,6 +4,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ThemeProvider, createTheme, lightColors } from "@rneui/themed";
 import { Button } from "@rneui/themed";
 import Header from "./components/header/header-component";
+import ArticlesList from "./components/articles/articles-list-component";
 
 const theme = createTheme({
   lightColors: {
@@ -21,15 +22,16 @@ const theme = createTheme({
 export default function App() {
   return (
     <SafeAreaProvider>
-      <Header />
       <ThemeProvider theme={theme}>
         <View style={styles.container}>
-          <Text>Pronto tendras todo el contenido de lactancia materna en la palma de tu mano!</Text>
+          <Header />
+          <ArticlesList />
+          {/* 
           <Button>Primary</Button>
           <Button color="secondary">Secondary</Button>
           <Button color="warning">Warning</Button>
           <Button color="error">Error</Button>
-          <StatusBar style="auto" />
+          <StatusBar style="auto" /> */}
         </View>
       </ThemeProvider>
     </SafeAreaProvider>
@@ -38,9 +40,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 2,
+    backgroundColor: '#E2BAC3',
   },
 });
