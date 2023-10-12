@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, ActivityIndicator, View, Text, Image } from "react-native";
+import { StyleSheet, View, Text, Image, Pressable } from "react-native";
 import { Header as HeaderRNE } from "@rneui/themed";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useSpring, animated } from "@react-spring/web";
@@ -13,44 +13,62 @@ type HeaderComponentProps = {
 };
 
 const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
-  // const [fontLoaded, setFontLoaded] = useState(false);
+  const [imagePressed, setImagePressed] = useState(false)
   const insets = useSafeAreaInsets();
-  const theFont = {
+  const theLobsterFont = {
     "Lobster-Regular": require("../../assets/fonts/Lobster-Regular.ttf"),
   };
-
-  const [fontLoaded] = Font.useFonts(theFont)
-  useEffect(() => {
-    async function loadFonts() {
-      
-      // await Font.loadAsync(theFont);
-      // setFontLoaded(true);
-    }
-
-    // loadFonts();
-  }, []);
+  const [fontLoaded] = Font.useFonts(theLobsterFont)
   const AnimatedView = animated(View);
   const { x } = useSpring({
     from: { x: 0 },
     x: 1,
     config: { duration: 1000 },
   });
+  const { y } = useSpring({
+    from: { y: 0 },
+    y: imagePressed ? 0 : 1,
+    config: { duration: 1000 },
+  })
 
   return (
       <HeaderRNE
         ViewComponent={LinearGradient}
         linearGradientProps={{
-          colors: ['#D897A5', '#E2BAC3'],
+          colors: ['#BE546C', '#E2BAC3'],
           start: { x: 0, y: 0.5 },
-          end: { x: 0, y: 1 },
+          end: { x: 1, y: 0.9 },
         }}
-        statusBarProps={{hidden:true}}
+        // statusBarProps={{hidden:true}}
         elevated={true}
         leftComponent={
-          <Image
-            source={require("./breastfeeding-mother.png")}
-            style={styles.logo}
-          />
+          <Pressable 
+
+            onPressOut={
+              () => {
+                setImagePressed(false);
+              }
+            }
+            onPressIn={
+              () => {
+                setImagePressed(true);
+              }
+            }
+          >
+             <AnimatedView
+              style={{
+                opacity: y.to({ range: [0, 1], output: [0.3, 1] }),
+                scale: y.to({
+                  range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
+                  output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
+                }),
+              }}>
+                <Image
+                  source={require("./breastfeeding-mother.png")}
+                  style={styles.logo}
+                />
+            </AnimatedView>
+          </Pressable>
         }
         centerComponent={
           fontLoaded && (
@@ -67,7 +85,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
           </AnimatedView>)
         }
         rightComponent={
-          <MaterialCommunityIcons style={styles.contactIcon} name="mother-nurse" size={24} color="white" />
+          <MaterialCommunityIcons style={styles.contactIcon} name="magnify" size={24} color="white" />
         }
         containerStyle={styles.headerContainer}
       />

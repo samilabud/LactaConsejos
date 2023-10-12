@@ -9,114 +9,157 @@ const ArticlesList = () => {
         {
         id: 1,
         title: "Los Beneficios Inigualables de la Lactancia Materna",
-        image: "2023-10-11"
+        image: require('../../assets/fotos/articulos/Articulo1.png'),
       },
       {
         id: 2,
         title: "Consejos para una Lactancia Materna Exitosa",
-        image: "2023-10-10"
+        image: require('../../assets/fotos/articulos/Articulo2.png'),
       },
       {
         id: 3,
         title: "Lactancia Materna vs. Lactancia Artificial: Pros y Contras",
-        image: "2023-10-09"
+        image: require('../../assets/fotos/articulos/Articulo3.png'),
       },
       {
         id: 4,
         title: "Cómo Prepararte para la Lactancia Materna Durante el Embarazo",
-        image: "2023-10-08"
+        image: require('../../assets/fotos/articulos/Articulo4.png'),
       },
       {
         id: 5,
         title: "Superando los Desafíos Comunes de la Lactancia Materna",
-        image: "2023-10-07"
+        image: require('../../assets/fotos/articulos/Articulo5.png'),
       },
       {
         id: 6,
         title: "Los Beneficios Inigualables de la Lactancia Materna",
-        image: "2023-10-11"
+        image: require('../../assets/fotos/articulos/Articulo6.png'),
       },
       {
         id: 7,
         title: "Consejos para una Lactancia Materna Exitosa",
-        image: "2023-10-10"
+        image: require('../../assets/fotos/articulos/Articulo7.png'),
       },
       {
         id: 8,
         title: "Lactancia Materna vs. Lactancia Artificial: Pros y Contras",
-        image: "2023-10-09"
+        image: require('../../assets/fotos/articulos/Articulo8.png'),
       },
       {
         id: 9,
         title: "Cómo Prepararte para la Lactancia Materna Durante el Embarazo",
-        image: "2023-10-08"
+        image: require('../../assets/fotos/articulos/Articulo9.png'),
       },
     
     ];
       
 
     return (
+      <View style={styles.articlesListContainer}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.title}>Artículos de lactancia</Text>
+          <Text style={styles.seeAll}>Ver todo</Text>
+        </View>
         <View style={styles.articlesContainer}>
             <FlatList 
+                horizontal={true}
                 data={dataArticles}
                 style={styles.list}
                 contentContainerStyle={styles.listContainer}
-                numColumns={2}
-                centerContent={true}
+                // numColumns={2}
+                // centerContent={true}
                 keyExtractor={(e) => e.id}
                 renderItem={( {item} ) => (
                     <TouchableOpacity style={styles.article} activeOpacity={0.8}>
                         <Image
-                            source={require('../../assets/fotos/articulos/articulo1.png')}
+                            source={item.image}
                             containerStyle={styles.articleImage}
-                            PlaceholderContent={<ActivityIndicator />}
+                            PlaceholderContent={<ActivityIndicator color={'red'} size={'large'} />}
                             transition={true}
+                            transitionDuration={500}
                             resizeMode="contain"
                         />
-                        <Text numberOfLines={2} style={styles.articleText}>{item.title}</Text>
+                        <View style={styles.articleTextContainer}>
+                          <Text style={styles.articleText} numberOfLines={2}>{item.title}</Text>
+                        </View>
                     </TouchableOpacity>
                 )}
             />
         </View>
+      </View>
     )
 }
 
 const styles = StyleSheet.create({
+  articlesListContainer: {
+    flex: 1,
+    marginTop: 20,
+    width: 'auto',
+},
+  titleContainer: {
+    flex: 1,
+    width: 'auto',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+    paddingHorizontal: 12,
+    flexWrap: 'nowrap',
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    color: '#000',
+    textShadowColor: '#eac4d5',
+    textShadowRadius: 3,
+    textShadowOffset: {width: 1, height: 3},
+  },
+  seeAll:{
+    color: '#176875',
+    fontVariant: 'small-caps',
+  },
+    
     articlesContainer: {
-        width: '100%',
-        flex: 1,
-        justifyContent: 'space-around',
-        alignContent: 'space-between',
+        flex: 9,
+        width: 'auto',
+        flexWrap: 'nowrap',
+        flexDirection: 'row',
+        marginTop: '-3%',
+        // alignContent: 'space-between',
     },
     listContainer: {
     },
     list: {
     },
     article: {
-        marginLeft: '5%',
-        marginRight: '5%',
-        marginBottom: '3%',
-        marginTop: '6%',
-        width: '40%',
-        textAlign: 'justify',
-        height: 170,
+        flex: 1,
+        marginLeft: 10,
+        height: 165,
     },
     articleImage: {
         aspectRatio: 1,
-        width: '95%',
-        height: '90%',
+        width: '100%',
+        height: '100%',
         borderRadius: 10,
-        marginTop: 5,
         borderColor: '#5e548e',
-        borderWidth: 1,
+        borderWidth: 3,
+        alignSelf: 'center',
+    },
+    articleTextContainer: {
+      position: 'absolute',
+      width: 159,
+      marginTop: 132,
+      marginStart: 3,
+      shadowOpacity: 0.8,
+      shadowOffset: {width:1,height:5},
+      backgroundColor: '#E2BAC3',
+      opacity: 0.8,
+      borderRadius: 7,
     },
     articleText: {
-        display: 'flex',
-        fontVariant: 'small-caps',
-        color: '#BE546C',
+        color: '#C10949',
         fontSize: 12,
-        fontWeight: 'bold',
-        marginTop: 5,
+        fontWeight: '700',
         textAlign: 'center',
     }
 });
