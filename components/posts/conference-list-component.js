@@ -4,27 +4,27 @@ import { Image } from '@rneui/themed';
 
 const BASE_URI = 'https://source.unsplash.com/random?sig=';
 
-const ArticlesList = () => {
+const ConferencesList = () => {
     const dataArticles  = [
         {
         id: 1,
         title: "Los Beneficios Inigualables de la Lactancia Materna",
-        image: require('../../assets/fotos/articulos/Articulo1.png'),
+        image: require('../../assets/fotos/articulos/Articulo9.png'),
       },
       {
         id: 2,
         title: "Consejos para una Lactancia Materna Exitosa",
-        image: require('../../assets/fotos/articulos/Articulo2.png'),
+        image: require('../../assets/fotos/articulos/Articulo8.png'),
       },
       {
         id: 3,
         title: "Lactancia Materna vs. Lactancia Artificial: Pros y Contras",
-        image: require('../../assets/fotos/articulos/Articulo3.png'),
+        image: require('../../assets/fotos/articulos/Articulo7.png'),
       },
       {
         id: 4,
         title: "Cómo Prepararte para la Lactancia Materna Durante el Embarazo",
-        image: require('../../assets/fotos/articulos/Articulo4.png'),
+        image: require('../../assets/fotos/articulos/Articulo6.png'),
       },
       {
         id: 5,
@@ -34,22 +34,22 @@ const ArticlesList = () => {
       {
         id: 6,
         title: "Los Beneficios Inigualables de la Lactancia Materna",
-        image: require('../../assets/fotos/articulos/Articulo6.png'),
+        image: require('../../assets/fotos/articulos/Articulo4.png'),
       },
       {
         id: 7,
         title: "Consejos para una Lactancia Materna Exitosa",
-        image: require('../../assets/fotos/articulos/Articulo7.png'),
+        image: require('../../assets/fotos/articulos/Articulo3.png'),
       },
       {
         id: 8,
         title: "Lactancia Materna vs. Lactancia Artificial: Pros y Contras",
-        image: require('../../assets/fotos/articulos/Articulo8.png'),
+        image: require('../../assets/fotos/articulos/Articulo2.png'),
       },
       {
         id: 9,
         title: "Cómo Prepararte para la Lactancia Materna Durante el Embarazo",
-        image: require('../../assets/fotos/articulos/Articulo9.png'),
+        image: require('../../assets/fotos/articulos/Articulo1.png'),
       },
     
     ];
@@ -58,7 +58,7 @@ const ArticlesList = () => {
     return (
       <View style={styles.articlesListContainer}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>Artículos de lactancia</Text>
+          <Text style={styles.title}>Acerca del bebe</Text>
           <Text style={styles.seeAll}>Ver todo</Text>
         </View>
         <View style={styles.articlesContainer}>
@@ -91,6 +91,7 @@ const ArticlesList = () => {
     )
 }
 
+
 const styles = StyleSheet.create({
   articlesListContainer: {
     flex: 1,
@@ -120,23 +121,26 @@ const styles = StyleSheet.create({
   },
     
     articlesContainer: {
-        flex: 9,
         width: 'auto',
-        flexWrap: 'nowrap',
-        flexDirection: 'row',
-        marginTop: '-3%',
-        // alignContent: 'space-between',
+        height: 170,
+        marginTop: 10,
     },
     listContainer: {
+      width: 'auto',
+      height:'auto',
     },
     list: {
+      width: 'auto',
+      height:'auto',
     },
     article: {
         flex: 1,
         marginLeft: 10,
-        height: 165,
+        height: 140,
+        width: 140,
     },
     articleImage: {
+        flex:1,
         aspectRatio: 1,
         width: '100%',
         height: '100%',
@@ -146,9 +150,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     articleTextContainer: {
+      flex:1,
       position: 'absolute',
-      width: 159,
-      marginTop: 132,
+      width: '96%',
+      marginTop: '76.5%',
       marginStart: 3,
       shadowOpacity: 0.8,
       shadowOffset: {width:1,height:5},
@@ -164,4 +169,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ArticlesList;
+export default ConferencesList;

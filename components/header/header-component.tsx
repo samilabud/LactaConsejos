@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, View, Text, Image, Pressable } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, View, Text, Image, Pressable, TouchableOpacity, StatusBar } from "react-native";
 import { Header as HeaderRNE } from "@rneui/themed";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useSpring, animated } from "@react-spring/web";
@@ -35,9 +35,9 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
       <HeaderRNE
         ViewComponent={LinearGradient}
         linearGradientProps={{
-          colors: ['#BE546C', '#E2BAC3'],
-          start: { x: 0, y: 0.5 },
-          end: { x: 1, y: 0.9 },
+          colors: ['#EED1CA','#F3D1D4'],
+          start: { x: 0.1, y: 0.1 },
+          end: { x: 0.2, y: 1 },
         }}
         // statusBarProps={{hidden:true}}
         elevated={true}
@@ -79,13 +79,16 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
                 range: [0, 0.25, 0.35, 0.45, 0.55, 0.65, 0.75, 1],
                 output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
               }),
+              alignSelf: 'flex-start'
             }}
           >
             <Text style={styles.heading}>Lacta Consejos</Text>
           </AnimatedView>)
         }
         rightComponent={
-          <MaterialCommunityIcons style={styles.contactIcon} name="magnify" size={24} color="white" />
+          <TouchableOpacity style={styles.searchButtonContainer} activeOpacity={0.8}>
+              <MaterialCommunityIcons style={styles.contactIcon} name="magnify" size={24} color="#77999F" />
+          </TouchableOpacity>
         }
         containerStyle={styles.headerContainer}
       />
@@ -94,18 +97,30 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
 
 
 const styles = StyleSheet.create({
-  contactIcon: {
+  searchButtonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    backgroundColor: '#F2D9DC',
+    borderTopLeftRadius: 30,
+    borderBottomLeftRadius: 30,
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    width: 70,
+    height: 20,
     marginTop: 8,
+    paddingRight: 15,
+    marginRight: -15,
+  },
+  contactIcon: {
   },
   headerContainer: {
     paddingVertical: 15,
     width: "100%",
-    marginBottom: -2,
+    paddingTop: StatusBar.currentHeight,
   },
   heading: {
     color: "#C10949",
     fontSize: 32,
-    // fontWeight: "bold",
     fontFamily: "Lobster-Regular",
   },
   logo: {

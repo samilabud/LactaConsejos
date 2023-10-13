@@ -1,10 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { Text, View, StyleSheet, Platform } from "react-native";
+import { Text, View, StyleSheet, Platform, ScrollView } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ThemeProvider, createTheme, lightColors } from "@rneui/themed";
 import { Button } from "@rneui/themed";
 import Header from "./components/header/header-component";
-import ArticlesList from "./components/articles/articles-list-component";
+import ArticlesList from "./components/posts/articles-list-component";
+import ConferencesList from "./components/posts/conference-list-component";
 
 const theme = createTheme({
   lightColors: {
@@ -25,7 +26,23 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <View style={styles.container}>
           <Header />
-          <ArticlesList />
+          <ScrollView style={styles.articlesContainer}>
+            <View style={styles.postContainer}>
+              <ArticlesList category={1} />
+            </View>
+            <View style={styles.postContainer}>
+              <ConferencesList />
+            </View>
+            <View style={styles.postContainer}>
+              <ArticlesList category={2} />
+            </View>
+            <View style={styles.postContainer}>
+              <ArticlesList category={3} />
+            </View>
+            <View style={styles.postContainer}>
+              <ArticlesList category={4} />
+            </View>
+          </ScrollView>
           {/* 
           <Button>Primary</Button>
           <Button color="secondary">Secondary</Button>
@@ -40,7 +57,13 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 2,
-    backgroundColor: '#E2BAC3',
+    flex: 1,
+    backgroundColor: '#F2D9DC',
   },
+  articlesContainer: {
+    flex: 1,
+  },
+  postContainer: {
+    flex: 1,
+  }
 });
