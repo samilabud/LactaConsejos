@@ -1,5 +1,4 @@
-import { View, Text, FlatList, StyleSheet, ActivityIndicator, TouchableOpacity } from "react-native";
-import { Image } from '@rneui/themed';
+import { Image, View, Text, FlatList, StyleSheet, ActivityIndicator, TouchableOpacity } from "react-native";
 
 
 const BASE_URI = 'https://source.unsplash.com/random?sig=';
@@ -9,47 +8,47 @@ const ConferencesList = () => {
         {
         id: 1,
         title: "Los Beneficios Inigualables de la Lactancia Materna",
-        image: require('../../assets/fotos/articulos/Articulo9.png'),
+        image: require('../../../assets/fotos/articulos/Articulo9.png'),
       },
       {
         id: 2,
         title: "Consejos para una Lactancia Materna Exitosa",
-        image: require('../../assets/fotos/articulos/Articulo8.png'),
+        image: require('../../../assets/fotos/articulos/Articulo8.png'),
       },
       {
         id: 3,
         title: "Lactancia Materna vs. Lactancia Artificial: Pros y Contras",
-        image: require('../../assets/fotos/articulos/Articulo7.png'),
+        image: require('../../../assets/fotos/articulos/Articulo7.png'),
       },
       {
         id: 4,
         title: "Cómo Prepararte para la Lactancia Materna Durante el Embarazo",
-        image: require('../../assets/fotos/articulos/Articulo6.png'),
+        image: require('../../../assets/fotos/articulos/Articulo6.png'),
       },
       {
         id: 5,
         title: "Superando los Desafíos Comunes de la Lactancia Materna",
-        image: require('../../assets/fotos/articulos/Articulo5.png'),
+        image: require('../../../assets/fotos/articulos/Articulo5.png'),
       },
       {
         id: 6,
         title: "Los Beneficios Inigualables de la Lactancia Materna",
-        image: require('../../assets/fotos/articulos/Articulo4.png'),
+        image: require('../../../assets/fotos/articulos/Articulo4.png'),
       },
       {
         id: 7,
         title: "Consejos para una Lactancia Materna Exitosa",
-        image: require('../../assets/fotos/articulos/Articulo3.png'),
+        image: require('../../../assets/fotos/articulos/Articulo3.png'),
       },
       {
         id: 8,
         title: "Lactancia Materna vs. Lactancia Artificial: Pros y Contras",
-        image: require('../../assets/fotos/articulos/Articulo2.png'),
+        image: require('../../../assets/fotos/articulos/Articulo2.png'),
       },
       {
         id: 9,
         title: "Cómo Prepararte para la Lactancia Materna Durante el Embarazo",
-        image: require('../../assets/fotos/articulos/Articulo1.png'),
+        image: require('../../../assets/fotos/articulos/Articulo1.png'),
       },
     
     ];

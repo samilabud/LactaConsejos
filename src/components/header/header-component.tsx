@@ -16,7 +16,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
   const [imagePressed, setImagePressed] = useState(false)
   const insets = useSafeAreaInsets();
   const theLobsterFont = {
-    "Lobster-Regular": require("../../assets/fonts/Lobster-Regular.ttf"),
+    "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
   };
   const [fontLoaded] = Font.useFonts(theLobsterFont)
   const AnimatedView = animated(View);
