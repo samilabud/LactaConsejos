@@ -86,7 +86,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
           </AnimatedView>)
         }
         rightComponent={
-          <TouchableOpacity style={styles.searchButtonContainer} activeOpacity={0.8}>
+          <TouchableOpacity style={styles.searchButtonContainer} activeOpacity={0.6}>
               <MaterialCommunityIcons style={styles.contactIcon} name="magnify" size={24} color="#77999F" />
           </TouchableOpacity>
         }

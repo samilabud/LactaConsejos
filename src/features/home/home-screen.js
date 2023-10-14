@@ -23,12 +23,6 @@ const HomeScreen = ()=> (
               <ArticlesList category={4} />
             </View>
           </ScrollView>
-          {/* 
-          <Button>Primary</Button>
-          <Button color="secondary">Secondary</Button>
-          <Button color="warning">Warning</Button>
-          <Button color="error">Error</Button>
-          <StatusBar style="auto" /> */}
         </View>
 );
 export default HomeScreen;

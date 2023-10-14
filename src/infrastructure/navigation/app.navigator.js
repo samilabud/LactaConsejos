@@ -1,21 +1,26 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
 import HomeScreen from '../../features/home/home-screen';
 
 const Tab = createBottomTabNavigator();
 
+const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: 'black'
+    },
+  };
 
 const TAB_ICON_FOCUSED = {
-  Restaurants: 'restaurant',
-  Map: 'map',
-  SettingsScreen: 'settings',
+  Home: 'home',
+  AboutMe: 'person',
 };
 
 const TAB_ICON_OUTLINE = {
-  Restaurants: 'restaurant-outline',
-  Map: 'map-outline',
-  SettingsScreen: 'settings-outline',
+    Home: 'home-outline',
+    AboutMe: 'person-outline',
 };
 
 const tabBarIcon =
@@ -31,16 +36,21 @@ const screenOptions = ({ route }) => {
 return {
     tabBarIcon: tabBarIcon(route.name),
     headerShown: false,
-    tabBarActiveTintColor: 'black',
-    tabBarInactiveTintColor: 'gray',
+    tabBarActiveTintColor: '#000',
+    tabBarInactiveTintColor: '#77999F',
+    tabBarInactiveBackgroundColor: '#EED1CA',
+    tabBarStyle: {
+        paddingHorizontal: 5,
+        backgroundColor: '#F3D1D4',
+    },
 };
 };
 
 const AppNavigator = () => (
-    <NavigationContainer>
+    <NavigationContainer  theme={MyTheme}>
         <Tab.Navigator screenOptions={screenOptions}>
             <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Settings" component={HomeScreen} />
+            <Tab.Screen name="AboutMe" component={HomeScreen} />
         </Tab.Navigator>
     </NavigationContainer>
 );
