@@ -1,26 +1,26 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
-import { NavigationContainer,DefaultTheme } from '@react-navigation/native';
-import HomeScreen from '../../features/home/home-screen';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
+import HomeScreen from "../../features/home/home-screen";
 
 const Tab = createBottomTabNavigator();
 
 const MyTheme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      background: 'black'
-    },
-  };
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: "black",
+  },
+};
 
 const TAB_ICON_FOCUSED = {
-  Home: 'home',
-  AboutMe: 'person',
+  Inicio: "home",
+  "Sobre mi": "person",
 };
 
 const TAB_ICON_OUTLINE = {
-    Home: 'home-outline',
-    AboutMe: 'person-outline',
+  Inicio: "home-outline",
+  "Sobre mi": "person-outline",
 };
 
 const tabBarIcon =
@@ -33,26 +33,26 @@ const tabBarIcon =
   };
 
 const screenOptions = ({ route }) => {
-return {
+  return {
     tabBarIcon: tabBarIcon(route.name),
     headerShown: false,
-    tabBarActiveTintColor: '#000',
-    tabBarInactiveTintColor: '#77999F',
-    tabBarInactiveBackgroundColor: '#EED1CA',
+    tabBarActiveTintColor: "#000",
+    tabBarInactiveTintColor: "#77999F",
+    tabBarInactiveBackgroundColor: "#EED1CA",
     tabBarStyle: {
-        paddingHorizontal: 5,
-        backgroundColor: '#F3D1D4',
+      paddingHorizontal: 5,
+      backgroundColor: "#F3D1D4",
     },
-};
+  };
 };
 
 const AppNavigator = () => (
-    <NavigationContainer  theme={MyTheme}>
-        <Tab.Navigator screenOptions={screenOptions}>
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="AboutMe" component={HomeScreen} />
-        </Tab.Navigator>
-    </NavigationContainer>
+  <NavigationContainer theme={MyTheme}>
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen name="Inicio" component={HomeScreen} />
+      <Tab.Screen name="Sobre mi" component={HomeScreen} />
+    </Tab.Navigator>
+  </NavigationContainer>
 );
 
 export default AppNavigator;
