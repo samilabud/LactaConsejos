@@ -2,6 +2,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import HomeScreen from "../../features/home/home-screen";
+import AboutMe from "../../features/profile/aboutme-screen";
+import { lightTheme } from '../../infrastructure/theme/default.theme';
 
 const Tab = createBottomTabNavigator();
 
@@ -33,15 +35,16 @@ const tabBarIcon =
   };
 
 const screenOptions = ({ route }) => {
+  const { colors } = lightTheme;
   return {
     tabBarIcon: tabBarIcon(route.name),
     headerShown: false,
-    tabBarActiveTintColor: "#000",
-    tabBarInactiveTintColor: "#445F5F",
-    tabBarInactiveBackgroundColor: "#EED1CA",
+    tabBarActiveTintColor: colors.activeTabTint,
+    tabBarInactiveTintColor: colors.inactiveTabTint,
+    tabBarInactiveBackgroundColor: colors.inactiveTabBackground,
     tabBarStyle: {
       paddingHorizontal: 5,
-      backgroundColor: "#F3D1D4",
+      backgroundColor: colors.surfaceBackgroundColor,
     },
   };
 };
@@ -50,7 +53,7 @@ const AppNavigator = () => (
   <NavigationContainer theme={MyTheme}>
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Inicio" component={HomeScreen} />
-      <Tab.Screen name="Sobre mi" component={HomeScreen} />
+      <Tab.Screen name="Sobre mi" component={AboutMe} />
     </Tab.Navigator>
   </NavigationContainer>
 );

@@ -9,10 +9,10 @@ import {
   StatusBar,
 } from "react-native";
 import { Header as HeaderRNE } from "@rneui/themed";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { useSpring, animated } from "@react-spring/web";
 import { LinearGradient } from "expo-linear-gradient";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { lightTheme } from '../../infrastructure/theme/default.theme';
 import * as Font from "expo-font";
 
 type HeaderComponentProps = {
@@ -21,8 +21,10 @@ type HeaderComponentProps = {
 };
 
 const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
+  const { colors } = lightTheme;
+  const [countPressed, setCountPressed] = useState(0);
+  const [activateHiddenEffect, setActivateHiddenEffect] = useState(false);
   const [imagePressed, setImagePressed] = useState(false);
-  const insets = useSafeAreaInsets();
   const theLobsterFont = {
     "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
   };
@@ -30,7 +32,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
   const AnimatedView = animated(View);
   const { x } = useSpring({
     from: { x: 0 },
-    x: 1,
+    x: activateHiddenEffect ? 0 : 1,
     config: { duration: 1000 },
   });
   const { y } = useSpring({
@@ -39,11 +41,45 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
     config: { duration: 1000 },
   });
 
+  const styles = StyleSheet.create({
+    searchButtonContainer: {
+      flex: 1,
+      flexDirection: "row",
+      backgroundColor: colors.iconBackground,
+      borderTopLeftRadius: 30,
+      borderBottomLeftRadius: 30,
+      justifyContent: "space-around",
+      alignItems: "center",
+      width: 70,
+      height: 20,
+      marginTop: 8,
+      paddingRight: 15,
+      marginRight: -15,
+    },
+    contactIcon: {
+      color: colors.iconColor,
+    },
+    headerContainer: {
+      paddingVertical: 15,
+      width: "100%",
+      paddingTop: StatusBar.currentHeight,
+    },
+    heading: {
+      color: colors.text,
+      fontSize: 32,
+      fontFamily: "Lobster-Regular",
+    },
+    logo: {
+      width: 50,
+      height: 50,
+    },
+  });
+
   return (
     <HeaderRNE
       ViewComponent={LinearGradient}
       linearGradientProps={{
-        colors: ["#EED1CA", "#F3D1D4"],
+        colors: [colors.primary, colors.secondary],
         start: { x: 0.1, y: 0.1 },
         end: { x: 0.2, y: 1 },
       }}
@@ -53,9 +89,17 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
         <Pressable
           onPressOut={() => {
             setImagePressed(false);
+            if(activateHiddenEffect && countPressed>=4){
+              setActivateHiddenEffect(false);
+              setCountPressed(0);
+            }
           }}
           onPressIn={() => {
             setImagePressed(true);
+            setCountPressed(countPressed=>countPressed+1);
+            if(countPressed>=2){
+              setActivateHiddenEffect(true);
+            }
           }}
         >
           <AnimatedView
@@ -99,7 +143,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
             style={styles.contactIcon}
             name="magnify"
             size={24}
-            color="#77999F"
+            // color="#77999F"
           />
         </TouchableOpacity>
       }
@@ -107,37 +151,5 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
     />
   );
 };
-
-const styles = StyleSheet.create({
-  searchButtonContainer: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "#2B2B2B",
-    borderTopLeftRadius: 30,
-    borderBottomLeftRadius: 30,
-    justifyContent: "space-around",
-    alignItems: "center",
-    width: 70,
-    height: 20,
-    marginTop: 8,
-    paddingRight: 15,
-    marginRight: -15,
-  },
-  contactIcon: {},
-  headerContainer: {
-    paddingVertical: 15,
-    width: "100%",
-    paddingTop: StatusBar.currentHeight,
-  },
-  heading: {
-    color: "#C10949",
-    fontSize: 32,
-    fontFamily: "Lobster-Regular",
-  },
-  logo: {
-    width: 50,
-    height: 50,
-  },
-});
 
 export default Header;
