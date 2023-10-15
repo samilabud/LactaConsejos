@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   searchButtonContainer: {
     flex: 1,
     flexDirection: "row",
-    backgroundColor: "#F2D9DC",
+    backgroundColor: "#2B2B2B",
     borderTopLeftRadius: 30,
     borderBottomLeftRadius: 30,
     justifyContent: "space-around",

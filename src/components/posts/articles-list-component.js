@@ -77,8 +77,6 @@ const ArticlesList = ({ category }) => {
           data={dataArticles}
           style={styles.list}
           contentContainerStyle={styles.listContainer}
-          // numColumns={2}
-          // centerContent={true}
           keyExtractor={(e) => e.id}
           renderItem={({ item }) => (
             <TouchableOpacity style={styles.article} activeOpacity={0.8}>
@@ -170,7 +168,7 @@ const styles = StyleSheet.create({
     marginStart: 3,
     shadowOpacity: 0.8,
     shadowOffset: { width: 1, height: 5 },
-    backgroundColor: "#E2BAC3",
+    backgroundColor: "#FFFFFF",
     opacity: 0.8,
     borderRadius: 7,
   },

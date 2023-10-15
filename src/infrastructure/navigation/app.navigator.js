@@ -37,7 +37,7 @@ const screenOptions = ({ route }) => {
     tabBarIcon: tabBarIcon(route.name),
     headerShown: false,
     tabBarActiveTintColor: "#000",
-    tabBarInactiveTintColor: "#77999F",
+    tabBarInactiveTintColor: "#445F5F",
     tabBarInactiveBackgroundColor: "#EED1CA",
     tabBarStyle: {
       paddingHorizontal: 5,
