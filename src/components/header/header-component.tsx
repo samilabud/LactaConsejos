@@ -12,7 +12,7 @@ import { Header as HeaderRNE } from "@rneui/themed";
 import { useSpring, animated } from "@react-spring/web";
 import { LinearGradient } from "expo-linear-gradient";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { lightTheme } from '../../infrastructure/theme/default.theme';
+import { lightTheme } from "../../infrastructure/theme/default.theme";
 import * as Font from "expo-font";
 
 type HeaderComponentProps = {
@@ -89,15 +89,15 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
         <Pressable
           onPressOut={() => {
             setImagePressed(false);
-            if(activateHiddenEffect && countPressed>=4){
+            if (activateHiddenEffect && countPressed >= 4) {
               setActivateHiddenEffect(false);
               setCountPressed(0);
             }
           }}
           onPressIn={() => {
             setImagePressed(true);
-            setCountPressed(countPressed=>countPressed+1);
-            if(countPressed>=2){
+            setCountPressed((countPressed) => countPressed + 1);
+            if (countPressed >= 2) {
               setActivateHiddenEffect(true);
             }
           }}

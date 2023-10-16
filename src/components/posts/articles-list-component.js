@@ -9,7 +9,6 @@ import {
 import { Image } from "@rneui/themed";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 
-
 const BASE_URI = "https://source.unsplash.com/random?sig=";
 
 const ArticlesList = ({ category }) => {
