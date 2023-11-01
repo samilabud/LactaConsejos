@@ -1,4 +1,10 @@
-import { View, Image, StyleSheet, Linking, TouchableOpacity } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  Linking,
+  TouchableOpacity,
+} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import { List } from "react-native-paper";
@@ -15,7 +21,7 @@ const openURL = async (url) => {
     await Linking.openURL(url);
   }
 };
-  
+
 const AboutMe = () => {
   const { colors } = lightTheme;
   const insets = useSafeAreaInsets();
@@ -41,7 +47,7 @@ const AboutMe = () => {
       marginTop: insets.top,
       borderColor: colors.borderColor,
       borderWidth: 4,
-      top: '10%',
+      top: "10%",
       zIndex: 3,
     },
     profileDataContainer: {
@@ -68,19 +74,19 @@ const AboutMe = () => {
         />
         <TouchableOpacity
           activeOpacity={0.6}
-          onPress={()=>openURL('mailto:paolavirginiaguzman@gmail.com')}
+          onPress={() => openURL("mailto:paolavirginiaguzman@gmail.com")}
         >
           <List.Item
-          title="paolavirginiaguzman@gmail.com"
-          description="Correo Electrónico"
-          titleStyle={{ color: colors.text }}
-          descriptionStyle={{ color: colors.accent }}
-          left={(props) => <List.Icon {...props} icon="email" />}
-        />
+            title="paolavirginiaguzman@gmail.com"
+            description="Correo Electrónico"
+            titleStyle={{ color: colors.text }}
+            descriptionStyle={{ color: colors.accent }}
+            left={(props) => <List.Icon {...props} icon="email" />}
+          />
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.6}
-          onPress={()=>openURL('https://www.instagram.com/lactaconsejosrd/')}
+          onPress={() => openURL("https://www.instagram.com/lactaconsejosrd/")}
         >
           <List.Item
             title="lactaconsejosrd"
@@ -90,10 +96,12 @@ const AboutMe = () => {
             left={(props) => <List.Icon {...props} icon="instagram" />}
           />
         </TouchableOpacity>
-        
+
         <TouchableOpacity
           activeOpacity={0.6}
-          onPress={()=>openURL('whatsapp://send?text=hello&phone=+18494086156')}
+          onPress={() =>
+            openURL("whatsapp://send?text=hello&phone=+18494086156")
+          }
         >
           <List.Item
             title="1-849-408-6156"

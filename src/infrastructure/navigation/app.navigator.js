@@ -4,7 +4,7 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import HomeScreen from "../../features/home/home-screen";
 import AboutMe from "../../features/profile/aboutme-screen";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
-
+import ArticleNavigator from "../../screens/articles/article-stack-screen";
 const Tab = createBottomTabNavigator();
 
 const MyTheme = {
@@ -52,7 +52,7 @@ const screenOptions = ({ route }) => {
 const AppNavigator = () => (
   <NavigationContainer theme={MyTheme}>
     <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Inicio" component={HomeScreen} />
+      <Tab.Screen name="Inicio" component={ArticleNavigator} />
       <Tab.Screen name="Sobre mi" component={AboutMe} />
     </Tab.Navigator>
   </NavigationContainer>

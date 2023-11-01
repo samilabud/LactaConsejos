@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Image } from "@rneui/themed";
+
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 
 const BASE_URI = "https://source.unsplash.com/random?sig=";
 
-const ArticlesList = ({ category }) => {
+const ArticlesList = ({ category, navigation }) => {
   const { colors } = lightTheme;
 
   const dataArticles = [
@@ -159,7 +160,11 @@ const ArticlesList = ({ category }) => {
           contentContainerStyle={styles.listContainer}
           keyExtractor={(e) => e.id}
           renderItem={({ item }) => (
-            <TouchableOpacity style={styles.article} activeOpacity={0.8}>
+            <TouchableOpacity
+              style={styles.article}
+              activeOpacity={0.8}
+              onPress={() => navigation.navigate("ArticleStackDetails", item)}
+            >
               <Image
                 source={item.image}
                 containerStyle={styles.articleImage}

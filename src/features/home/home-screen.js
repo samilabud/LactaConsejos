@@ -1,22 +1,22 @@
 import Header from "../../components/header/header-component";
-import ArticlesList from "../../components/posts/articles-list-component";
+import ArticlesList from "../article/articles-list";
 import { View, StyleSheet, Platform, ScrollView } from "react-native";
 
-const HomeScreen = () => (
+const HomeScreen = ({ navigation }) => (
   <View style={styles.container}>
     <Header />
     <ScrollView style={styles.articlesContainer}>
       <View style={styles.postContainer}>
-        <ArticlesList category={1} />
+        <ArticlesList category={1} navigation={navigation} />
       </View>
       <View style={styles.postContainer}>
-        <ArticlesList category={2} />
+        <ArticlesList category={2} navigation={navigation} />
       </View>
       <View style={styles.postContainer}>
-        <ArticlesList category={3} />
+        <ArticlesList category={3} navigation={navigation} />
       </View>
       <View style={styles.postContainer}>
-        <ArticlesList category={4} />
+        <ArticlesList category={4} navigation={navigation} />
       </View>
     </ScrollView>
   </View>
