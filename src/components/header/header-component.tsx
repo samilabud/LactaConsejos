@@ -43,21 +43,25 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
 
   const styles = StyleSheet.create({
     searchButtonContainer: {
-      flex: 1,
       flexDirection: "row",
       backgroundColor: colors.iconBackground,
       borderTopLeftRadius: 30,
       borderBottomLeftRadius: 30,
-      justifyContent: "space-around",
+      justifyContent: "flex-start",
       alignItems: "center",
-      width: 70,
-      height: 20,
-      marginTop: 8,
+      width: 120,
+      height: 40,
+      marginTop: 10,
       paddingRight: 15,
       marginRight: -15,
     },
+    searchButtonText: {
+      paddingStart: 10, 
+      color: colors.iconColor
+    },
     contactIcon: {
       color: colors.iconColor,
+      paddingStart: 10
     },
     headerContainer: {
       paddingVertical: 15,
@@ -68,6 +72,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
       color: colors.text,
       fontSize: 32,
       fontFamily: "Lobster-Regular",
+      marginLeft: -15,
     },
     logo: {
       width: 50,
@@ -128,6 +133,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
                 output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
               }),
               alignSelf: "flex-start",
+              paddingTop: 10
             }}
           >
             <Text style={styles.heading}>Lacta Consejos</Text>
@@ -143,8 +149,8 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
             style={styles.contactIcon}
             name="magnify"
             size={24}
-            // color="#77999F"
           />
+          <Text style={styles.searchButtonText}>Buscar</Text>
         </TouchableOpacity>
       }
       containerStyle={styles.headerContainer}
