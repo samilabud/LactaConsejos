@@ -72,7 +72,6 @@ const ArticlesList = ({ category, navigation }) => {
   const styles = StyleSheet.create({
     articlesListContainer: {
       flex: 1,
-      marginTop: 20,
       width: "auto",
     },
     titleContainer: {
@@ -81,6 +80,7 @@ const ArticlesList = ({ category, navigation }) => {
       justifyContent: "space-between",
       flexDirection: "row",
       paddingHorizontal: 12,
+      paddingBottom: 4,
       flexWrap: "nowrap",
     },
     title: {
@@ -123,15 +123,15 @@ const ArticlesList = ({ category, navigation }) => {
       height: "100%",
       borderRadius: 10,
       borderColor: colors.borderColor,
-      borderWidth: 2,
+      borderWidth: 1,
       alignSelf: "center",
     },
     articleTextContainer: {
       flex: 1,
       position: "absolute",
-      width: "96%",
-      marginTop: "76.5%",
-      marginStart: 3,
+      width: "97.3%",
+      marginTop: "76.9%",
+      marginStart: 2,
       shadowOpacity: 0.8,
       shadowOffset: { width: 1, height: 5 },
       backgroundColor: colors.onSurface,
