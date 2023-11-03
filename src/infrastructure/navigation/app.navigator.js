@@ -1,7 +1,6 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import HomeScreen from "../../features/home/home-screen";
 import AboutMe from "../../features/profile/aboutme-screen";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import ArticleNavigator from "../../screens/articles/article-stack-screen";
