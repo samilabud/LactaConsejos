@@ -45,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
       {dataCategories ? (
         <ScrollView style={styles.articlesContainer}>
           {dataCategories.map((category, idx) => (
-            <View style={styles.postContainer}>
+            <View style={styles.postContainer} key={idx}>
               <ArticlesList category={category} navigation={navigation} />
             </View>
           ))}

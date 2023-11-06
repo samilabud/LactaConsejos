@@ -125,7 +125,7 @@ const ArticlesList = ({ category, navigation }) => {
             data={dataArticles}
             style={styles.list}
             contentContainerStyle={styles.listContainer}
-            keyExtractor={(e) => e.id}
+            keyExtractor={(e) => e._id}
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={styles.article}
