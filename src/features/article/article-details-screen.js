@@ -6,14 +6,18 @@ import {
   ScrollView,
   useWindowDimensions,
   ImageBackground,
+  ActivityIndicator,
 } from "react-native";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import RenderHTML from "react-native-render-html";
+import { Image } from "@rneui/themed";
 
 const ArticleDetails = ({ route, navigation }) => {
-  const { title, content: html } = route.params;
+  const backendBaseURL =
+    Platform.OS === "ios" ? "http://localhost:3080" : "http://10.0.2.2:3080";
+  const { title, content: html, image } = route.params;
   const { colors } = lightTheme;
 
   const theLobsterFont = {
@@ -68,17 +72,29 @@ const ArticleDetails = ({ route, navigation }) => {
       alignContent: "space-between",
       justifyContent: "space-between",
     },
+    articleImage: {
+      flex: 1,
+      aspectRatio: 1,
+      width: "60%",
+      height: "60%",
+      borderRadius: 10,
+      borderColor: colors.borderColor,
+      borderWidth: 1,
+      alignSelf: "center",
+      marginBottom: 100,
+      marginTop: 20,
+    },
   });
   const goBack = (navigation) => {
     navigation.goBack();
   };
-  const image = require("../../../assets/brand/breastfeeding-article-header.jpg");
+  const headerImage = require("../../../assets/brand/breastfeeding-article-header.jpg");
   const { width } = useWindowDimensions();
   return (
     <View style={styles.articleContainer}>
       <ImageBackground
         blurRadius={5}
-        source={image}
+        source={headerImage}
         resizeMode="cover"
         style={styles.image}
       >
@@ -103,6 +119,16 @@ const ArticleDetails = ({ route, navigation }) => {
       <ScrollView style={styles.scrollContainer}>
         <View style={styles.articleDataContainer}>
           {html && <RenderHTML contentWidth={width} source={{ html }} />}
+          <Image
+            source={{ uri: `${backendBaseURL}${image}` }}
+            containerStyle={styles.articleImage}
+            PlaceholderContent={
+              <ActivityIndicator color={"red"} size={"large"} />
+            }
+            transition={true}
+            transitionDuration={500}
+            resizeMode="contain"
+          />
         </View>
       </ScrollView>
     </View>

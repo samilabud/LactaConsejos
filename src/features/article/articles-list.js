@@ -20,16 +20,8 @@ const ArticlesList = ({ category, navigation }) => {
     Platform.OS === "ios" ? "http://localhost:3080" : "http://10.0.2.2:3080";
   const { colors } = lightTheme;
 
-  const dataCategories = {
-    1: "Aprendiendo a Lactar",
-    2: "Madres lactantes",
-    3: "Información para padres",
-    4: "Acerca del bebe",
-  };
-
   useEffect(() => {
-    const loadArticlesByCategory = async (categoryId) => {
-      const categoryName = dataCategories[categoryId];
+    const loadArticlesByCategory = async (categoryName) => {
       try {
         let articles = await fetch(
           `${backendBaseURL}/articles/latest/${categoryName}`,
@@ -124,7 +116,7 @@ const ArticlesList = ({ category, navigation }) => {
     dataArticles && (
       <View style={styles.articlesListContainer}>
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{dataCategories[category]}</Text>
+          <Text style={styles.title}>{category}</Text>
           <Text style={styles.seeAll}>Ver todo</Text>
         </View>
         <View style={styles.articlesContainer}>
