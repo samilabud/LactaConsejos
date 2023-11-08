@@ -1,6 +1,8 @@
 const { getDefaultConfig, mergeConfig } = require("@react-native/metro-config");
 
 const defaultConfig = getDefaultConfig(__dirname);
+defaultConfig.resolver.assetExts.push("hcscript");
+defaultConfig.transformer.assetPlugins = ["expo-asset/tools/hashAssetFiles"];
 const { assetExts, sourceExts } = defaultConfig.resolver;
 
 /**
