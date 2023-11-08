@@ -13,10 +13,9 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
+import { backendBaseURL } from "../../global";
 
 const ArticleDetails = ({ route, navigation }) => {
-  const backendBaseURL =
-    Platform.OS === "ios" ? "http://localhost:3080" : "http://10.0.2.2:3080";
   const { title, content: html, image } = route.params;
   const { colors } = lightTheme;
 
@@ -120,7 +119,7 @@ const ArticleDetails = ({ route, navigation }) => {
         <View style={styles.articleDataContainer}>
           {html && <RenderHTML contentWidth={width} source={{ html }} />}
           <Image
-            source={{ uri: `${backendBaseURL}${image}` }}
+            source={{ uri: `data:image/png;base64,${image}` }}
             containerStyle={styles.articleImage}
             PlaceholderContent={
               <ActivityIndicator color={"red"} size={"large"} />

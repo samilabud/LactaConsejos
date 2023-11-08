@@ -3,10 +3,9 @@ import Header from "../../components/header/header-component";
 import ArticlesList from "../article/articles-list";
 import { View, StyleSheet, ScrollView, ActivityIndicator } from "react-native";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
+import { backendBaseURL } from "../../global";
 
 const HomeScreen = ({ navigation }) => {
-  const backendBaseURL =
-    Platform.OS === "ios" ? "http://localhost:3080" : "http://10.0.2.2:3080";
   const [dataCategories, setDataCategories] = useState();
   const { colors } = lightTheme;
 

@@ -9,15 +9,13 @@ import {
   Platform,
 } from "react-native";
 import { Image } from "@rneui/themed";
-
+import { backendBaseURL } from "../../global";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 
 const BASE_URI = "https://source.unsplash.com/random?sig=";
 
 const ArticlesList = ({ category, navigation }) => {
   const [dataArticles, setDataArticles] = useState(null);
-  const backendBaseURL =
-    Platform.OS === "ios" ? "http://localhost:3080" : "http://10.0.2.2:3080";
   const { colors } = lightTheme;
 
   useEffect(() => {
@@ -133,7 +131,9 @@ const ArticlesList = ({ category, navigation }) => {
                 onPress={() => navigation.navigate("ArticleStackDetails", item)}
               >
                 <Image
-                  source={{ uri: `${backendBaseURL}${item.image}` }}
+                  source={{
+                    uri: `data:image/png;base64,${item.image}`,
+                  }}
                   containerStyle={styles.articleImage}
                   PlaceholderContent={
                     <ActivityIndicator color={"red"} size={"large"} />
