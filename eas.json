@@ -1,0 +1,14 @@
+{
+  "build": {
+    "preview": {
+      "android": {
+        "channel": "staging",
+        "developmentClient": true,
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "channel": "production"
+    }
+  }
+}

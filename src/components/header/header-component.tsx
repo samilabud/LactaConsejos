@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { FunctionComponent, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -14,13 +14,13 @@ import { LinearGradient } from "expo-linear-gradient";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import * as Font from "expo-font";
+import React = require("react");
 
 type HeaderComponentProps = {
-  title: string;
-  view?: string;
+  navigation: any;
 };
 
-const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
+const Header: FunctionComponent<HeaderComponentProps> = (props) => {
   const { colors } = lightTheme;
   const [countPressed, setCountPressed] = useState(0);
   const [activateHiddenEffect, setActivateHiddenEffect] = useState(false);
@@ -56,12 +56,12 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
       marginRight: -15,
     },
     searchButtonText: {
-      paddingStart: 10, 
-      color: colors.iconColor
+      paddingStart: 10,
+      color: colors.iconColor,
     },
     contactIcon: {
       color: colors.iconColor,
-      paddingStart: 10
+      paddingStart: 10,
     },
     headerContainer: {
       paddingVertical: 15,
@@ -133,7 +133,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
                 output: [1, 0.97, 0.9, 1.1, 0.9, 1.1, 1.03, 1],
               }),
               alignSelf: "flex-start",
-              paddingTop: 10
+              paddingTop: 10,
             }}
           >
             <Text style={styles.heading}>Lacta Consejos</Text>
@@ -144,6 +144,7 @@ const Header: React.FunctionComponent<HeaderComponentProps> = (props) => {
         <TouchableOpacity
           style={styles.searchButtonContainer}
           activeOpacity={0.6}
+          onPress={() => props.navigation.navigate("ArticleStackSearch")}
         >
           <MaterialCommunityIcons
             style={styles.contactIcon}

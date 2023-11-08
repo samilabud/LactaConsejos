@@ -12,18 +12,33 @@
       "resizeMode": "cover",
       "backgroundColor": "#F3D1D4"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.samilabud.LactaConsejos"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#F3D1D4"
-      }
+      },
+      "package": "com.samilabud.LactaConsejos"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a7e3c7c3-0d92-492e-bd5a-90c8454578b7"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/a7e3c7c3-0d92-492e-bd5a-90c8454578b7"
     }
   }
 }

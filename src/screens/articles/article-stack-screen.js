@@ -3,10 +3,11 @@ import {
   createStackNavigator,
   TransitionPresets,
 } from "@react-navigation/stack";
-
-const ArticleStack = createStackNavigator();
 import HomeScreen from "../../features/home/home-screen";
 import ArticleDetailScreen from "../../features/article/article-details-screen";
+import ArticleSearch from "../../features/article/article-search";
+
+const ArticleStack = createStackNavigator();
 
 const ArticleNavigator = () => {
   return (
@@ -20,6 +21,11 @@ const ArticleNavigator = () => {
       <ArticleStack.Screen
         name="ArticleStackDetails"
         component={ArticleDetailScreen}
+      />
+
+      <ArticleStack.Screen
+        name="ArticleStackSearch"
+        component={ArticleSearch}
       />
     </ArticleStack.Navigator>
   );

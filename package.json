@@ -1,11 +1,10 @@
 {
   "name": "lactaconsejos",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
     "web": "expo start --web",
     "prettier": "npx prettier --write"
   },
@@ -22,10 +21,13 @@
     "@types/react": "^18.2.25",
     "@types/react-dom": "~18.0.10",
     "expo": "~49.0.13",
+    "expo-dev-client": "~2.4.12",
     "expo-font": "~11.4.0",
     "expo-linear-gradient": "~12.3.0",
     "expo-router": "^2.0.10",
+    "expo-splash-screen": "~0.20.5",
     "expo-status-bar": "~1.6.0",
+    "expo-updates": "~0.18.17",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.72.6",
@@ -36,7 +38,8 @@
     "react-native-svg": "^13.9.0",
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "~0.19.6",
-    "react-svg": "^16.1.27"
+    "react-svg": "^16.1.27",
+    "react-native-screens": "~3.22.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -6,13 +6,10 @@ import {
   StyleSheet,
   ActivityIndicator,
   TouchableOpacity,
-  Platform,
 } from "react-native";
 import { Image } from "@rneui/themed";
 import { backendBaseURL } from "../../global";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
-
-const BASE_URI = "https://source.unsplash.com/random?sig=";
 
 const ArticlesList = ({ category, navigation }) => {
   const [dataArticles, setDataArticles] = useState(null);
@@ -115,7 +112,14 @@ const ArticlesList = ({ category, navigation }) => {
       <View style={styles.articlesListContainer}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{category}</Text>
-          <Text style={styles.seeAll}>Ver todo</Text>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() =>
+              navigation.navigate("ArticleStackSearch", { category })
+            }
+          >
+            <Text style={styles.seeAll}>Ver todo</Text>
+          </TouchableOpacity>
         </View>
         <View style={styles.articlesContainer}>
           <FlatList

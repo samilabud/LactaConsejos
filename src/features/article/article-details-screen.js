@@ -13,15 +13,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
-import { backendBaseURL } from "../../global";
+
+const theLobsterFont = {
+  "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
+};
 
 const ArticleDetails = ({ route, navigation }) => {
   const { title, content: html, image } = route.params;
   const { colors } = lightTheme;
 
-  const theLobsterFont = {
-    "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
-  };
   const [fontLoaded] = Font.useFonts(theLobsterFont);
 
   const styles = StyleSheet.create({
