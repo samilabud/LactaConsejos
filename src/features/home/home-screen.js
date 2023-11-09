@@ -16,10 +16,10 @@ const HomeScreen = ({ navigation }) => {
     },
     articlesContainer: {
       flex: 1,
-      marginTop: 10,
     },
     postContainer: {
       flex: 1,
+      marginTop: 10,
     },
   });
 

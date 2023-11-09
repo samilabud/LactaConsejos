@@ -66,7 +66,7 @@ const ArticleSearch = ({ route, navigation }) => {
       flex: 1,
     },
     imageBackgroundContainer: {
-      flex: 0.3,
+      flex: 0.1,
       justifyContent: "center",
       alignContent: "space-between",
       justifyContent: "space-between",
@@ -92,7 +92,7 @@ const ArticleSearch = ({ route, navigation }) => {
     searchTitleContainer: {
       backgroundColor: colors.background + "30",
       padding: 10,
-      marginBottom: 60,
+      marginBottom: "10%",
       minHeight: 30,
     },
     searchTitle: {
@@ -107,7 +107,6 @@ const ArticleSearch = ({ route, navigation }) => {
     list: {
       width: "auto",
       height: "auto",
-
       padding: 20,
     },
     article: {
@@ -185,8 +184,16 @@ const ArticleSearch = ({ route, navigation }) => {
         {!category && (
           <Input
             placeholder="Consejos de lactancia."
-            leftIcon={<Icon name="search" size={24} color="black" />}
+            leftIcon={
+              <Icon
+                name="search"
+                size={24}
+                color="black"
+                style={{ marginTop: 10 }}
+              />
+            }
             onChangeText={(value) => setDataSearch(value)}
+            style={{ marginTop: 10 }}
           />
         )}
         {isLoading ? (
