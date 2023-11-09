@@ -66,7 +66,7 @@ const AboutMe = () => {
       </View>
       <View style={styles.profileDataContainer}>
         <List.Item
-          title="Dra. Paola Guzmán"
+          title="Dra. Paola Guzmán Herrera"
           description="Nombre"
           titleStyle={{ color: colors.text }}
           descriptionStyle={{ color: colors.accent }}

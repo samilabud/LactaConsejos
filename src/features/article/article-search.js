@@ -94,6 +94,7 @@ const ArticleSearch = ({ route, navigation }) => {
       backgroundColor: colors.background + "30",
       padding: 10,
       marginBottom: 60,
+      minHeight: 30,
     },
     searchTitle: {
       color: colors.text,
@@ -184,7 +185,7 @@ const ArticleSearch = ({ route, navigation }) => {
       <View style={styles.scrollContainer}>
         {!category && (
           <Input
-            placeholder="Escriba el contenido que desea buscar"
+            placeholder="Consejos de lactancia."
             leftIcon={<Icon name="search" size={24} color="black" />}
             onChangeText={(value) => setDataSearch(value)}
           />
