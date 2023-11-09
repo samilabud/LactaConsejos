@@ -65,17 +65,16 @@ const ArticleSearch = ({ route, navigation }) => {
     articleContainer: {
       flex: 1,
     },
-
     imageBackgroundContainer: {
-      flex: 0.4,
+      flex: 0.3,
       justifyContent: "center",
       alignContent: "space-between",
       justifyContent: "space-between",
+      minHeight: 120,
     },
     topNavigationContainer: {
       width: "auto",
       paddingLeft: 10,
-      paddingTop: 10,
     },
     touchableContainer: {
       width: "auto",
@@ -101,7 +100,6 @@ const ArticleSearch = ({ route, navigation }) => {
       fontSize: 32,
       fontFamily: "Lobster-Regular",
     },
-
     listContainer: {
       width: "auto",
       height: "auto",
@@ -109,6 +107,8 @@ const ArticleSearch = ({ route, navigation }) => {
     list: {
       width: "auto",
       height: "auto",
+
+      padding: 20,
     },
     article: {
       flex: 1,
@@ -116,7 +116,6 @@ const ArticleSearch = ({ route, navigation }) => {
     },
     scrollContainer: {
       flex: 1,
-      padding: 20,
       backgroundColor: colors.background,
     },
     articleTextContainer: {

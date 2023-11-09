@@ -1,4 +1,5 @@
-import { FunctionComponent, useState } from "react";
+//@ts-ignore
+import React, { FunctionComponent, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -14,7 +15,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import * as Font from "expo-font";
-import React = require("react");
 
 type HeaderComponentProps = {
   navigation: any;

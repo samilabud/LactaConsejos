@@ -22,7 +22,7 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#F3D1D4"
+        "backgroundColor": "#EED1CA"
       },
       "package": "com.samilabud.LactaConsejos"
     },
