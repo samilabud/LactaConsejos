@@ -13,14 +13,33 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
+import Share from "react-native-share";
 
 const theLobsterFont = {
   "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
 };
 
 const ArticleDetails = ({ route, navigation }) => {
-  const { title, content: html, image } = route.params;
+  const { title, content: html, image, _id: id } = route.params;
+  console.log(route.params);
   const { colors } = lightTheme;
+
+  const shareLink = async (title, id) => {
+    try {
+      const url = `https://lactaconsejos.com/a/${id}`;
+      const message = "Te comparto este enlace, por favor revísalo!";
+
+      const options = {
+        title: `Compartir - ${title}`,
+        message: `${message}\n`,
+        url: url,
+      };
+
+      await Share.open(options);
+    } catch (error) {
+      // console.error("Error sharing link:", error.message);
+    }
+  };
 
   const [fontLoaded] = Font.useFonts(theLobsterFont);
 
@@ -32,13 +51,17 @@ const ArticleDetails = ({ route, navigation }) => {
       width: "auto",
       paddingLeft: 10,
       paddingTop: 10,
+      paddingRight: 10,
+      flex: 2,
+      justifyContent: "space-between",
+      flexDirection: "row",
     },
     touchableContainer: {
       width: "auto",
       flexWrap: "wrap",
       flexDirection: "row",
     },
-    goBackIcon: {
+    topNavigationIcon: {
       color: colors.iconColor,
     },
     goBackText: {
@@ -104,11 +127,23 @@ const ArticleDetails = ({ route, navigation }) => {
             style={styles.touchableContainer}
           >
             <MaterialCommunityIcons
-              style={styles.goBackIcon}
+              style={styles.topNavigationIcon}
               name="keyboard-backspace"
               size={24}
             />
             {fontLoaded && <Text style={styles.goBackText}>Ir Atras</Text>}
+          </TouchableOpacity>
+          <TouchableOpacity
+            activeOpacity={0.6}
+            onPress={() => shareLink(title, id)}
+            style={styles.touchableContainer}
+          >
+            <MaterialCommunityIcons
+              style={styles.topNavigationIcon}
+              name="share-variant"
+              size={24}
+            />
+            {fontLoaded && <Text style={styles.goBackText}>Compartir</Text>}
           </TouchableOpacity>
         </View>
         <View style={styles.articleTitleContainer}>
