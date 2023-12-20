@@ -1,8 +1,11 @@
 import { frontendBaseURL } from "../../global";
+import * as Linking from "expo-linking";
 
+//https://reactnavigation.org/docs/deep-linking
 //https://reactnavigation.org/docs/navigation-container/#linkingconfig
+
 export const linkingConfig = {
-  prefixes: ["lactaconsejos://", frontendBaseURL],
+  prefixes: ["lactaconsejos://", frontendBaseURL, Linking.createURL("/")],
   config: {
     screens: {
       Home: {
