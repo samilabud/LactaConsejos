@@ -51,32 +51,6 @@ const screenOptions = ({ route }) => {
   };
 };
 
-//https://reactnavigation.org/docs/navigation-state/
-const state = {
-  type: "stack",
-  key: "stack-1",
-  routeNames: ["Inicio", "Sobre mi"],
-  routes: [
-    {
-      key: "home-1",
-      name: "Inicio",
-      state: {
-        key: "articles-1",
-        routeNames: ["Home", "ArticleStackDetails", "ArticleStackSearch"],
-        routes: [
-          { key: "home-2", name: "Home" },
-          { key: "details-1", name: "ArticleStackDetails" },
-          { key: "search-1", name: "ArticleStackSearch" },
-        ],
-        index: 0,
-      },
-    },
-    { key: "aboutme-1", name: "Sobre mi" },
-  ],
-  index: 1,
-  stale: false,
-};
-
 const AppNavigator = () => (
   <NavigationContainer
     linking={linkingConfig}

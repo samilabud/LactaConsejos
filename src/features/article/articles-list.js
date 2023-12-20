@@ -10,8 +10,9 @@ import {
 import { Image } from "@rneui/themed";
 import { backendBaseURL } from "../../global";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
+import { CommonActions } from "@react-navigation/native";
 
-const ArticlesList = ({ category, navigation }) => {
+const ArticlesList = ({ category, navigation, route }) => {
   const [dataArticles, setDataArticles] = useState(null);
   const { colors } = lightTheme;
 
@@ -107,6 +108,36 @@ const ArticlesList = ({ category, navigation }) => {
     },
   });
 
+  const goToArticle = (navigation, item) => {
+    // navigation.dispatch((state) => {
+    //   // Add the home route to the start of the stack
+    //   const routes = [{ name: "Home" }, ...state.routes];
+
+    //   return CommonActions.reset({
+    //     ...state,
+    //     routes,
+    //     index: routes.length - 1,
+    //   });
+    // });
+    // const routes = [
+    //   ...state.routes.slice(0, -1),
+    //   { name: "Sobre mi", params: item },
+    //   state.routes[state.routes.length - 1],
+    // ];
+
+    // return CommonActions.reset({
+    //   ...state,
+    //   routes,
+    //   index: routes.length - 1,
+    // });
+    navigation.dispatch(
+      CommonActions.navigate({
+        name: "ArticleStackDetails",
+        params: item,
+      }),
+    );
+  };
+
   return (
     dataArticles && (
       <View style={styles.articlesListContainer}>
@@ -132,7 +163,8 @@ const ArticlesList = ({ category, navigation }) => {
               <TouchableOpacity
                 style={styles.article}
                 activeOpacity={0.8}
-                onPress={() => navigation.navigate("ArticleStackDetails", item)}
+                // onPress={() => navigation.navigate("ArticleStackDetails", item)}
+                onPress={() => goToArticle(navigation, item)}
               >
                 <Image
                   source={{
