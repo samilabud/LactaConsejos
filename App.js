@@ -3,6 +3,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import AppNavigator from "./src/infrastructure/navigation/app.navigator";
 import { Provider as PaperProvider } from "react-native-paper";
 import { lightTheme } from "./src/infrastructure/theme/default.theme";
+import DeepLinking from "react-native-deep-linking";
+import * as Linking from "expo-linking";
 
 export default function App() {
   return (

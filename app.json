@@ -42,6 +42,7 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "scheme": "lactaconsejos"
   }
 }

@@ -14,6 +14,7 @@ import * as Font from "expo-font";
 import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
 import Share from "react-native-share";
+import { frontendBaseURL } from "../../global";
 
 const theLobsterFont = {
   "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
@@ -21,12 +22,12 @@ const theLobsterFont = {
 
 const ArticleDetails = ({ route, navigation }) => {
   const { title, content: html, image, _id: id } = route.params;
-  console.log(route.params);
+  // console.log(route.params);
   const { colors } = lightTheme;
 
   const shareLink = async (title, id) => {
     try {
-      const url = `https://lactaconsejos.com/a/${id}`;
+      const url = `${frontendBaseURL}/a/${id}`;
       const message = "Te comparto este enlace, por favor revísalo!";
 
       const options = {
