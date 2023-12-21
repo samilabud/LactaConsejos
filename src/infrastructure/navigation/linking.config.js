@@ -5,19 +5,28 @@ import * as Linking from "expo-linking";
 //https://reactnavigation.org/docs/navigation-container/#linkingconfig
 
 export const linkingConfig = {
-  prefixes: ["lactaconsejos://", frontendBaseURL, Linking.createURL("/")],
+  prefixes: [
+    Linking.createURL("/"),
+    // frontendBaseURL,
+    // Linking.createURL("exp://10.0.0.15:8081/--/"),
+  ],
   config: {
     screens: {
-      Home: {
-        screens: {
-          ArticleStackDetails: {
-            path: "a/:id",
-            // parse: {
-            //   id: Number,
-            // },
-          },
-        },
-      },
+      Incio: "Inicio",
+      "Sobre mi": "Sobre mi",
+      Home: "Home",
+      ArticleStackDetails: "ArticleStackDetails",
+      ArticleStackSearch: "ArticleStackSearch",
+      NotFound: "*",
+      // Home: {
+      //   path: "/",
+      // },
+      // ArticleStackDetails: {
+      //   path: "a/:id",
+      //   // parse: {
+      //   //   id: Number,
+      //   // },
+      // },
     },
   },
   getStateFromPath(path, config) {
@@ -26,3 +35,4 @@ export const linkingConfig = {
     // You can also reuse the default logic by importing `getStateFromPath` from `@react-navigation/native`
   },
 };
+// console.log(linkingConfig);

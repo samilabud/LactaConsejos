@@ -56,6 +56,7 @@ const AppNavigator = () => (
     linking={linkingConfig}
     theme={MyTheme}
     fallback={<Text>Loading...</Text>}
+    initialRouteName="Inicio"
   >
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Inicio" component={ArticleNavigator} />
