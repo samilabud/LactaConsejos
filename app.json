@@ -1,8 +1,7 @@
 {
   "expo": {
-    "name": "LactaConsejos",
-    "slug": "LactaConsejos",
-    "main": "node_modules/expo/AppEntry.js",
+    "name": "lactaconsejos",
+    "slug": "lactaconsejos",
     "version": "1.2.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -44,6 +43,6 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "lactaconsejos"
+    "scheme": "com.samilabud.LactaConsejos"
   }
 }

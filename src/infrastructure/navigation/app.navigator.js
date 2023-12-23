@@ -1,13 +1,7 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
 import { Text } from "react-native";
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import AboutMe from "../../features/profile/aboutme-screen";
-import { lightTheme } from "../../infrastructure/theme/default.theme";
 import ArticleNavigator from "../../screens/articles/article-stack-screen";
 import { linkingConfig } from "../navigation/linking.config";
-
-const Tab = createBottomTabNavigator();
 
 const MyTheme = {
   ...DefaultTheme,
@@ -17,51 +11,17 @@ const MyTheme = {
   },
 };
 
-const TAB_ICON_FOCUSED = {
-  Inicio: "home",
-  "Sobre mi": "person",
-};
-
-const TAB_ICON_OUTLINE = {
-  Inicio: "home-outline",
-  "Sobre mi": "person-outline",
-};
-
-const tabBarIcon =
-  (routeName) =>
-  ({ focused, size, color }) => {
-    const iconName = focused
-      ? TAB_ICON_FOCUSED[routeName]
-      : TAB_ICON_OUTLINE[routeName];
-    return <Ionicons name={iconName} size={size} color={color} />;
-  };
-
-const screenOptions = ({ route }) => {
-  const { colors } = lightTheme;
-  return {
-    tabBarIcon: tabBarIcon(route.name),
-    headerShown: false,
-    tabBarActiveTintColor: colors.activeTabTint,
-    tabBarInactiveTintColor: colors.inactiveTabTint,
-    tabBarInactiveBackgroundColor: colors.inactiveTabBackground,
-    tabBarStyle: {
-      paddingHorizontal: 5,
-      backgroundColor: colors.surfaceBackgroundColor,
-    },
-  };
-};
-
 const AppNavigator = () => (
   <NavigationContainer
     linking={linkingConfig}
     theme={MyTheme}
     fallback={<Text>Loading...</Text>}
-    initialRouteName="Inicio"
   >
-    <Tab.Navigator screenOptions={screenOptions}>
+    <ArticleNavigator />
+    {/* <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen name="Inicio" component={ArticleNavigator} />
       <Tab.Screen name="Sobre mi" component={AboutMe} />
-    </Tab.Navigator>
+    </Tab.Navigator> */}
   </NavigationContainer>
 );
 
