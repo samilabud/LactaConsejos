@@ -2,7 +2,7 @@ import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../../features/home/home-screen";
-// import ArticleDetailScreen from "../../features/article/article-details-screen";
+import ArticleDetailScreen from "../../features/article/article-details-screen";
 import ArticleSearch from "../../features/article/article-search";
 import NotFoundScreen from "../404/NotFound";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -63,10 +63,11 @@ const ArticleNavigator = () => {
       initialRouteName="Home"
     >
       <ArticleStack.Screen name="Home" component={TabComponent} />
-      {/* <ArticleStack.Screen
+
+      <ArticleStack.Screen
         name="ArticleStackDetails"
         component={ArticleDetailScreen}
-      /> */}
+      />
 
       <ArticleStack.Screen
         name="ArticleStackSearch"

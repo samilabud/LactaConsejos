@@ -40,7 +40,8 @@
     "react-native-svg": "^13.9.0",
     "react-native-vector-icons": "^10.0.0",
     "react-native-web": "~0.19.6",
-    "react-svg": "^16.1.27"
+    "react-svg": "^16.1.27",
+    "expo-sharing": "~11.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

@@ -108,35 +108,14 @@ const ArticlesList = ({ category, navigation, route }) => {
     },
   });
 
-  const goToArticle = (navigation, item) => {
-    // navigation.dispatch((state) => {
-    //   // Add the home route to the start of the stack
-    //   const routes = [{ name: "Home" }, ...state.routes];
-
-    //   return CommonActions.reset({
-    //     ...state,
-    //     routes,
-    //     index: routes.length - 1,
-    //   });
-    // });
-    // const routes = [
-    //   ...state.routes.slice(0, -1),
-    //   { name: "Sobre mi", params: item },
-    //   state.routes[state.routes.length - 1],
-    // ];
-
-    // return CommonActions.reset({
-    //   ...state,
-    //   routes,
-    //   index: routes.length - 1,
-    // });
-    navigation.dispatch(
-      CommonActions.navigate({
-        name: "ArticleStackDetails",
-        params: item,
-      }),
-    );
-  };
+  // const goToArticle = (navigation, item) => {
+  //   navigation.dispatch(
+  //     CommonActions.navigate({
+  //       name: "ArticleStackDetails",
+  //       params: item,
+  //     }),
+  //   );
+  // };
 
   return (
     dataArticles && (
@@ -163,8 +142,8 @@ const ArticlesList = ({ category, navigation, route }) => {
               <TouchableOpacity
                 style={styles.article}
                 activeOpacity={0.8}
-                // onPress={() => navigation.navigate("ArticleStackDetails", item)}
-                onPress={() => goToArticle(navigation, item)}
+                onPress={() => navigation.navigate("ArticleStackDetails", item)}
+                // onPress={() => goToArticle(navigation, item)}
               >
                 <Image
                   source={{

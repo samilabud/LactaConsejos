@@ -18,7 +18,9 @@ export const linkingConfig = {
         },
       },
       ArticleStackSearch: "search",
-      ArticleStackDetails: "details",
+      ArticleStackDetails: {
+        path: "/a/:id",
+      },
       NotFound: "*",
       // Home: {
       //   path: "/",

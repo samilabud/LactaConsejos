@@ -20,6 +20,19 @@
       "bundleIdentifier": "com.samilabud.LactaConsejos"
     },
     "android": {
+      "config": {
+        "intentFilters": [
+          {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "lactaconsejos"
+            }
+          ]
+          }
+
+        ]
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#EED1CA"
