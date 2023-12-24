@@ -74,12 +74,10 @@ const ArticleSearch = ({ route, navigation }) => {
     },
     topNavigationContainer: {
       width: "auto",
-      paddingLeft: 10,
+      // paddingLeft: 10,
     },
     touchableContainer: {
-      width: "auto",
-      flexWrap: "wrap",
-      flexDirection: "row",
+      marginTop: 1,
     },
     goBackIcon: {
       color: colors.iconColor,

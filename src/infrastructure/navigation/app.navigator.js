@@ -18,10 +18,6 @@ const AppNavigator = () => (
     fallback={<Text>Loading...</Text>}
   >
     <ArticleNavigator />
-    {/* <Tab.Navigator screenOptions={screenOptions}>
-      <Tab.Screen name="Inicio" component={ArticleNavigator} />
-      <Tab.Screen name="Sobre mi" component={AboutMe} />
-    </Tab.Navigator> */}
   </NavigationContainer>
 );
 

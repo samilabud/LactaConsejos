@@ -32,3 +32,7 @@ export const linkingConfig = {
     },
   },
 };
+//To test linking we should run:
+// 1. npm start
+// 2. open Android (a option)
+// 3. execute npx uri-scheme open exp://10.0.0.15:8081/--/aboutme --android
