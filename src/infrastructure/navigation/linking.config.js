@@ -8,12 +8,7 @@ const scheme = Linking.createURL("/");
 const prefix = `${scheme}lactaconsejos://`;
 
 export const linkingConfig = {
-  prefixes: [
-    prefix,
-    scheme,
-    // frontendBaseURL,
-    // Linking.createURL("exp://10.0.0.15:8081/--/"),
-  ],
+  prefixes: [prefix, scheme, frontendBaseURL],
   config: {
     screens: {
       Home: {
