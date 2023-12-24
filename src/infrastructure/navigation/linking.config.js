@@ -22,15 +22,6 @@ export const linkingConfig = {
         path: "/a/:id",
       },
       NotFound: "*",
-      // Home: {
-      //   path: "/",
-      // },
-      // ArticleStackDetails: {
-      //   path: "a/:id",
-      //   // parse: {
-      //   //   id: Number,
-      //   // },
-      // },
     },
   },
 };
@@ -38,3 +29,5 @@ export const linkingConfig = {
 // 1. npm start
 // 2. open Android (a option)
 // 3. execute npx uri-scheme open exp://10.0.0.15:8081/--/aboutme --android
+
+//eg: npx uri-scheme open exp://10.0.0.15:8081/--/a/654668eace3f103a641c6174 --android

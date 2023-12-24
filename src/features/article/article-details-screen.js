@@ -44,13 +44,8 @@ const ArticleDetails = ({ route, navigation }) => {
     //If user is using a shared link the data should be loaded from API
     const loadData = async () => {
       if (!hasRoutPostData) {
-        let {
-          title,
-          content: html,
-          image,
-          _id: id,
-        } = await loadArticlesById(urlID);
-        setPostData({ title, html, image, id });
+        let { title, content, image, _id: id } = await loadArticlesById(urlID);
+        setPostData({ title, content, image, id });
       }
     };
     loadData();
@@ -182,10 +177,10 @@ const ArticleDetails = ({ route, navigation }) => {
         </ImageBackground>
         <ScrollView style={styles.scrollContainer}>
           <View style={styles.articleDataContainer}>
-            {postData.html && (
+            {postData.content && (
               <RenderHTML
                 contentWidth={width}
-                source={{ html: postData.html }}
+                source={{ html: postData.content }}
               />
             )}
             <Image
