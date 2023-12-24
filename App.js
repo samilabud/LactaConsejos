@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import AppNavigator from "./src/infrastructure/navigation/app.navigator";
@@ -12,14 +13,5 @@ export default function App() {
         <StatusBar style="auto" />
       </PaperProvider>
     </SafeAreaProvider>
-  );
-}
-
-export function ErrorBoundary(props) {
-  return (
-    <View style={{ flex: 1, backgroundColor: "red" }}>
-      <Text>{props.error.message}</Text>
-      <Text onPress={props.retry}>Try Again?</Text>
-    </View>
   );
 }

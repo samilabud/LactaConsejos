@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "LactaConsejos",
-    "slug": "LactaConsejos",
-    "version": "1.1.0",
+    "name": "lactaconsejos",
+    "slug": "lactaconsejos",
+    "version": "1.2.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -20,6 +20,19 @@
       "bundleIdentifier": "com.samilabud.LactaConsejos"
     },
     "android": {
+      "config": {
+        "intentFilters": [
+          {
+          "action": "VIEW",
+          "data": [
+            {
+              "scheme": "lactaconsejos"
+            }
+          ]
+          }
+
+        ]
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#EED1CA"
@@ -42,6 +55,7 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "scheme": "com.samilabud.LactaConsejos"
   }
 }
