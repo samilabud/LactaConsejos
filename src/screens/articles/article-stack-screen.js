@@ -1,6 +1,10 @@
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+// import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import HomeScreen from "../../features/home/home-screen";
 import ArticleDetailScreen from "../../features/article/article-details-screen";
 import ArticleSearch from "../../features/article/article-search";
@@ -10,6 +14,7 @@ import AboutMe from "../../features/profile/aboutme-screen";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 
 const Tab = createBottomTabNavigator();
+const ArticleStack = createStackNavigator();
 
 const screenOptions = ({ route }) => {
   const { colors } = lightTheme;
@@ -52,12 +57,11 @@ const TabComponent = () => (
   </Tab.Navigator>
 );
 
-const ArticleStack = createNativeStackNavigator();
-
 const ArticleNavigator = () => {
   return (
     <ArticleStack.Navigator
       screenOptions={{
+        ...TransitionPresets.ModalPresentationIOS,
         headerShown: false,
       }}
       initialRouteName="Home"
