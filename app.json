@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "lactaconsejos",
-    "slug": "lactaconsejos",
+    "name": "LactaConsejos",
+    "slug": "LactaConsejos",
     "version": "1.2.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
