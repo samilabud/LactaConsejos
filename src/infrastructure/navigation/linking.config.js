@@ -25,6 +25,7 @@ export const linkingConfig = {
     },
   },
 };
+
 //To test linking we should run:
 // 1. npm start
 // 2. open Android (a option)
