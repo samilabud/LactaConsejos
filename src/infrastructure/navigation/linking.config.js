@@ -4,11 +4,10 @@ import * as Linking from "expo-linking";
 //https://reactnavigation.org/docs/deep-linking
 //https://reactnavigation.org/docs/navigation-container/#linkingconfig
 
-const scheme = Linking.createURL("/");
-const prefix = `${scheme}lactaconsejos://`;
+const prefix = Linking.createURL("/");
 
 export const linkingConfig = {
-  prefixes: [prefix, scheme, frontendBaseURL],
+  prefixes: [prefix, frontendBaseURL],
   config: {
     screens: {
       Home: {
