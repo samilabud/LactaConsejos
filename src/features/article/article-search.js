@@ -66,7 +66,7 @@ const ArticleSearch = ({ route, navigation }) => {
       flex: 1,
     },
     imageBackgroundContainer: {
-      flex: 0.1,
+      flex: 0.3,
       justifyContent: "center",
       alignContent: "space-between",
       justifyContent: "space-between",
@@ -74,10 +74,11 @@ const ArticleSearch = ({ route, navigation }) => {
     },
     topNavigationContainer: {
       width: "auto",
-      // paddingLeft: 10,
+      paddingLeft: 10,
     },
     touchableContainer: {
-      marginTop: 1,
+      marginTop: 10,
+      flexDirection: "row",
     },
     goBackIcon: {
       color: colors.iconColor,
@@ -90,7 +91,7 @@ const ArticleSearch = ({ route, navigation }) => {
     searchTitleContainer: {
       backgroundColor: colors.background + "30",
       padding: 10,
-      marginBottom: "10%",
+      marginBottom: 60,
       minHeight: 30,
     },
     searchTitle: {

@@ -55,6 +55,6 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "com.samilabud.LactaConsejos"
+    "scheme": "lactaconsejos"
   }
 }

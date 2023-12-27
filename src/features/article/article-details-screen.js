@@ -24,11 +24,10 @@ const theLobsterFont = {
 };
 
 const ArticleDetails = ({ route, navigation }) => {
-  // let  = route.params;
   const [postData, setPostData] = useState(route.params);
   const { id: urlID } = route.params;
   const { colors } = lightTheme;
-  const hasRoutPostData = Object.keys(postData).length > 1;
+  const hasRoutePostData = Object.keys(postData).length > 1;
 
   const loadArticlesById = async (urlID) => {
     try {
@@ -43,7 +42,7 @@ const ArticleDetails = ({ route, navigation }) => {
   useEffect(() => {
     //If user is using a shared link the data should be loaded from API
     const loadData = async () => {
-      if (!hasRoutPostData) {
+      if (!hasRoutePostData) {
         let { title, content, image, _id: id } = await loadArticlesById(urlID);
         setPostData({ title, content, image, id });
       }
@@ -132,12 +131,16 @@ const ArticleDetails = ({ route, navigation }) => {
     },
   });
   const goBack = (navigation) => {
-    navigation.goBack();
+    if (hasRoutePostData) {
+      navigation.navigate("Home"); //If user open the app using a link should go home screen instead of go back
+    } else {
+      navigation.goBack();
+    }
   };
   const headerImage = require("../../../assets/brand/breastfeeding-article-header.jpg");
   const { width } = useWindowDimensions();
   return (
-    hasRoutPostData && (
+    hasRoutePostData && (
       <View style={styles.articleContainer}>
         <ImageBackground
           blurRadius={5}

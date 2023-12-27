@@ -100,7 +100,7 @@ const AboutMe = () => {
         <TouchableOpacity
           activeOpacity={0.6}
           onPress={() =>
-            openURL("whatsapp://send?text=hello&phone=+18494086156")
+            openURL("http://api.whatsapp.com/send?phone=18494086156")
           }
         >
           <List.Item
