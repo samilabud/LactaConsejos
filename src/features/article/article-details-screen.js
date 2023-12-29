@@ -103,9 +103,10 @@ const ArticleDetails = ({ route, navigation }) => {
       alignItems: "flex-start",
     },
     scrollContainer: {
-      flex: 1,
       padding: 20,
       backgroundColor: colors.background,
+      maxHeight: 600,
+      flex: 1,
     },
     image: {
       flex: 0.6,
