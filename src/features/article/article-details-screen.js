@@ -42,7 +42,6 @@ const ArticleDetails = ({ route, navigation }) => {
       if (!hasRoutePostData) {
         let { title, content, image, _id } = await loadArticlesById(urlID);
         setPostData({ title, content, image, _id });
-        console.log({ title, _id });
       }
     };
     loadData();
