@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -14,10 +14,8 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Font from "expo-font";
 import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
-// import { Linking } from "react-native";
-import * as ExpoLinking from "expo-linking";
 import { Share } from "react-native";
-import { backendBaseURL } from "../../global";
+import { backendBaseURL, frontendBaseURL } from "../../global";
 
 const theLobsterFont = {
   "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
@@ -40,22 +38,21 @@ const ArticleDetails = ({ route, navigation }) => {
   };
 
   useEffect(() => {
-    //If user is using a shared link the data should be loaded from API
     const loadData = async () => {
       if (!hasRoutePostData) {
-        let { title, content, image, _id: id } = await loadArticlesById(urlID);
-        setPostData({ title, content, image, id });
+        let { title, content, image, _id } = await loadArticlesById(urlID);
+        setPostData({ title, content, image, _id });
+        console.log({ title, _id });
       }
     };
     loadData();
-  }, []);
+  }, [urlID]);
 
-  const shareLink = async (title, id) => {
+  const shareLink = async () => {
     try {
-      const scheme = ExpoLinking.createURL("/");
-      const url = `${scheme}a/${id}`;
+      const { title, _id: id } = postData;
+      const url = `${frontendBaseURL}/a/${id}`;
       const message = `Te comparto este artículo: ${title}, por favor revísalo:`;
-
       Share.share({
         message: `${message} ${url}`,
       });
@@ -163,7 +160,7 @@ const ArticleDetails = ({ route, navigation }) => {
             </TouchableOpacity>
             <TouchableOpacity
               activeOpacity={0.6}
-              onPress={() => shareLink(postData.title, postData.id)}
+              onPress={() => shareLink()}
               style={styles.touchableContainer}
             >
               <MaterialCommunityIcons
