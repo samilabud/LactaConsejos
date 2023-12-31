@@ -20,7 +20,7 @@
       "bundleIdentifier": "com.samilabud.LactaConsejos"
     },
     "android": {
-      "versionCode": 2,
+      "versionCode": 3,
       "config": {
         "intentFilters": [
           {
