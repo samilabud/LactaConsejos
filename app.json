@@ -2,7 +2,7 @@
   "expo": {
     "name": "LactaConsejos",
     "slug": "LactaConsejos",
-    "version": "1.2.1",
+    "version": "3.2.2",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -20,15 +20,17 @@
       "bundleIdentifier": "com.samilabud.LactaConsejos"
     },
     "android": {
+      "versionCode": 2,
       "config": {
         "intentFilters": [
           {
-          "action": "VIEW",
-          "data": [
-            {
-              "scheme": "lactaconsejos"
-            }
-          ]
+            "action": "VIEW",
+            "data": [
+              {
+                "scheme": "https",
+                "host": "lactaconsejos.netlify.app"
+              }
+            ]
           }
         ]
       },
@@ -55,6 +57,6 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "lactaconsejos"
+    "scheme": "LactaConsejos"
   }
 }
