@@ -57,6 +57,6 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "LactaConsejos"
+    "scheme": "https"
   }
 }

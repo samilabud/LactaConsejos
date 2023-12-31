@@ -1,4 +1,4 @@
-import { frontendBaseURL } from "../../global";
+import { frontendBaseURL, frontendHost } from "../../global";
 import * as Linking from "expo-linking";
 
 //https://reactnavigation.org/docs/deep-linking
@@ -7,7 +7,7 @@ import * as Linking from "expo-linking";
 const prefix = Linking.createURL("/");
 
 export const linkingConfig = {
-  prefixes: [prefix, frontendBaseURL],
+  prefixes: [prefix, frontendBaseURL, frontendHost],
   config: {
     screens: {
       Home: {

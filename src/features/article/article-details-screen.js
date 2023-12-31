@@ -69,7 +69,7 @@ const ArticleDetails = ({ route, navigation }) => {
     topNavigationContainer: {
       width: "auto",
       paddingLeft: 10,
-      paddingTop: 25,
+      paddingTop: 20,
       paddingRight: 10,
       flex: 2,
       justifyContent: "space-between",
