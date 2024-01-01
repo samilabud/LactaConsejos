@@ -15,7 +15,7 @@ import * as Font from "expo-font";
 import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
 import { Share } from "react-native";
-import { backendBaseURL, frontendBaseURL } from "../../global";
+import { backendBaseURL, frontendRedirectorUrl } from "../../global";
 
 const theLobsterFont = {
   "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
@@ -50,7 +50,7 @@ const ArticleDetails = ({ route, navigation }) => {
   const shareLink = async () => {
     try {
       const { title, _id: id } = postData;
-      const url = `${frontendBaseURL}/a/${id}`;
+      const url = `${frontendRedirectorUrl}/${id}`;
       const message = `Te comparto este artículo: ${title}, por favor revísalo:`;
       Share.share({
         message: `${message} ${url}`,

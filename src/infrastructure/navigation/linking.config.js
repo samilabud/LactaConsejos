@@ -5,9 +5,11 @@ import * as Linking from "expo-linking";
 //https://reactnavigation.org/docs/navigation-container/#linkingconfig
 
 const prefix = Linking.createURL("/");
+const appName = "lactaconsejos";
+const urlScheme = "https";
 
 export const linkingConfig = {
-  prefixes: [prefix, frontendBaseURL, frontendHost],
+  prefixes: [prefix, frontendBaseURL, frontendHost, appName, urlScheme],
   config: {
     screens: {
       Home: {

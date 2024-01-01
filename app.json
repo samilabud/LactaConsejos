@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "LactaConsejos",
+    "name": "lactaconsejos",
     "slug": "LactaConsejos",
     "version": "3.2.2",
     "orientation": "portrait",
@@ -27,7 +27,7 @@
             "action": "VIEW",
             "data": [
               {
-                "scheme": "https",
+                "scheme": "lactaconsejos",
                 "host": "lactaconsejos.netlify.app"
               }
             ]
@@ -57,6 +57,6 @@
     "plugins": [
       "expo-router"
     ],
-    "scheme": "https"
+    "scheme": "lactaconsejos"
   }
 }
