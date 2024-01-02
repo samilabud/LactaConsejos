@@ -2,7 +2,7 @@
   "expo": {
     "name": "lactaconsejos",
     "slug": "LactaConsejos",
-    "version": "3.2.2",
+    "version": "4.1.6",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -20,7 +20,7 @@
       "bundleIdentifier": "com.samilabud.LactaConsejos"
     },
     "android": {
-      "versionCode": 3,
+      "versionCode": 4,
       "config": {
         "intentFilters": [
           {
