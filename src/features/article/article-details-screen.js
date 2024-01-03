@@ -51,7 +51,7 @@ const ArticleDetails = ({ route, navigation }) => {
     try {
       const { title, _id: id } = postData;
       const url = `${frontendRedirectorUrl}/${id}`;
-      const message = `Te comparto este artículo: ${title}, por favor revísalo:`;
+      const message = `Te comparto este artículo: ${title}, por favor revísalo.`;
       Share.share({
         message: `${message} ${url}`,
       });
