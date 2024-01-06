@@ -40,7 +40,6 @@ const HomeScreen = ({ navigation }) => {
   useEffect(() => {
     const loadCategories = async () => {
       try {
-        await sleep(3000);
         const response = await fetch(`${backendBaseURL}/articles/categories`, {
           mode: "cors",
         });

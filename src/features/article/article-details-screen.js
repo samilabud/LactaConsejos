@@ -26,6 +26,8 @@ const ArticleDetails = ({ route, navigation }) => {
   const { id: urlID } = route.params;
   const { colors } = lightTheme;
   const hasRoutePostData = Object.keys(postData).length > 1;
+  //If is loaded from an URL should show the loading indicator
+  const [isLoading, setIsLoading] = useState(!hasRoutePostData);
 
   const loadArticlesById = async (urlID) => {
     try {
@@ -43,6 +45,7 @@ const ArticleDetails = ({ route, navigation }) => {
         let { title, content, image, _id } = await loadArticlesById(urlID);
         setPostData({ title, content, image, _id });
       }
+      setIsLoading(false);
     };
     loadData();
   }, [urlID]);
@@ -65,6 +68,7 @@ const ArticleDetails = ({ route, navigation }) => {
   const styles = StyleSheet.create({
     articleContainer: {
       flex: 1,
+      backgroundColor: colors.background,
     },
     topNavigationContainer: {
       width: "auto",
@@ -126,7 +130,17 @@ const ArticleDetails = ({ route, navigation }) => {
       marginBottom: 100,
       marginTop: 20,
     },
+    indicatorWrapper: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+    indicatorText: {
+      fontSize: 18,
+      marginTop: 12,
+    },
   });
+
   const goBack = (navigation) => {
     if (hasRoutePostData) {
       navigation.navigate("Home"); //If user open the app using a link should go home screen instead of go back
@@ -137,66 +151,74 @@ const ArticleDetails = ({ route, navigation }) => {
   const headerImage = require("../../../assets/brand/breastfeeding-article-header.jpg");
   const { width } = useWindowDimensions();
   return (
-    hasRoutePostData && (
-      <View style={styles.articleContainer}>
-        <ImageBackground
-          blurRadius={5}
-          source={headerImage}
-          resizeMode="cover"
-          style={styles.image}
-        >
-          <View style={styles.topNavigationContainer}>
-            <TouchableOpacity
-              activeOpacity={0.6}
-              onPress={() => goBack(navigation)}
-              style={styles.touchableContainer}
-            >
-              <MaterialCommunityIcons
-                style={styles.topNavigationIcon}
-                name="keyboard-backspace"
-                size={24}
+    <View style={styles.articleContainer}>
+      {isLoading && (
+        <View style={styles.indicatorWrapper}>
+          <ActivityIndicator size="large" color={colors.iconColor} />
+          <Text style={styles.indicatorText}>Cargando artículo...</Text>
+        </View>
+      )}
+      {hasRoutePostData && (
+        <>
+          <ImageBackground
+            blurRadius={5}
+            source={headerImage}
+            resizeMode="cover"
+            style={styles.image}
+          >
+            <View style={styles.topNavigationContainer}>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => goBack(navigation)}
+                style={styles.touchableContainer}
+              >
+                <MaterialCommunityIcons
+                  style={styles.topNavigationIcon}
+                  name="keyboard-backspace"
+                  size={24}
+                />
+                {fontLoaded && <Text style={styles.goBackText}>Ir Atras</Text>}
+              </TouchableOpacity>
+              <TouchableOpacity
+                activeOpacity={0.6}
+                onPress={() => shareLink()}
+                style={styles.touchableContainer}
+              >
+                <MaterialCommunityIcons
+                  style={styles.topNavigationIcon}
+                  name="share-variant"
+                  size={24}
+                />
+                {fontLoaded && <Text style={styles.goBackText}>Compartir</Text>}
+              </TouchableOpacity>
+            </View>
+            <View style={styles.articleTitleContainer}>
+              <Text style={styles.articleTitle}>{postData.title}</Text>
+            </View>
+          </ImageBackground>
+          <ScrollView style={styles.scrollContainer}>
+            <View style={styles.articleDataContainer}>
+              {postData.content && (
+                <RenderHTML
+                  contentWidth={width}
+                  source={{ html: postData.content }}
+                />
+              )}
+              <Image
+                source={{ uri: `data:image/png;base64,${postData.image}` }}
+                containerStyle={styles.articleImage}
+                PlaceholderContent={
+                  <ActivityIndicator color={"red"} size={"large"} />
+                }
+                transition={true}
+                transitionDuration={500}
+                resizeMode="contain"
               />
-              {fontLoaded && <Text style={styles.goBackText}>Ir Atras</Text>}
-            </TouchableOpacity>
-            <TouchableOpacity
-              activeOpacity={0.6}
-              onPress={() => shareLink()}
-              style={styles.touchableContainer}
-            >
-              <MaterialCommunityIcons
-                style={styles.topNavigationIcon}
-                name="share-variant"
-                size={24}
-              />
-              {fontLoaded && <Text style={styles.goBackText}>Compartir</Text>}
-            </TouchableOpacity>
-          </View>
-          <View style={styles.articleTitleContainer}>
-            <Text style={styles.articleTitle}>{postData.title}</Text>
-          </View>
-        </ImageBackground>
-        <ScrollView style={styles.scrollContainer}>
-          <View style={styles.articleDataContainer}>
-            {postData.content && (
-              <RenderHTML
-                contentWidth={width}
-                source={{ html: postData.content }}
-              />
-            )}
-            <Image
-              source={{ uri: `data:image/png;base64,${postData.image}` }}
-              containerStyle={styles.articleImage}
-              PlaceholderContent={
-                <ActivityIndicator color={"red"} size={"large"} />
-              }
-              transition={true}
-              transitionDuration={500}
-              resizeMode="contain"
-            />
-          </View>
-        </ScrollView>
-      </View>
-    )
+            </View>
+          </ScrollView>
+        </>
+      )}
+    </View>
   );
 };
 
