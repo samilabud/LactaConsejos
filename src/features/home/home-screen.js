@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
         console.log(err, `Could not load the categories`);
       }
     };
-    // loadCategories();
+    loadCategories();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
@@ -49,7 +49,7 @@ const HomeScreen = ({ navigation }) => {
           ))}
         </ScrollView>
       ) : (
-        <SkeletonIndicator />
+        <SkeletonIndicator blocks={6} width={180} height={180} />
       )}
     </View>
   );
