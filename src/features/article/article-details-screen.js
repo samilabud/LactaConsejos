@@ -16,6 +16,7 @@ import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
 import { Share } from "react-native";
 import { backendBaseURL, frontendRedirectorUrl } from "../../global";
+import SkeletonIndicator from "../../components/indicators/skeleton-indicator";
 
 const theLobsterFont = {
   "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
@@ -35,7 +36,7 @@ const ArticleDetails = ({ route, navigation }) => {
       post = await post.json();
       return post;
     } catch (err) {
-      console.log(err, `Could not load post from id ${urlID}`);
+      console.error(err, `Could not load post from id ${urlID}`);
     }
   };
 
@@ -47,8 +48,7 @@ const ArticleDetails = ({ route, navigation }) => {
       }
       setIsLoading(false);
     };
-    setIsLoading(true);
-    // loadData();
+    loadData();
   }, [urlID]);
 
   const shareLink = async () => {
@@ -154,10 +154,13 @@ const ArticleDetails = ({ route, navigation }) => {
   return (
     <View style={styles.articleContainer}>
       {isLoading || !hasRoutePostData ? (
-        <View style={styles.indicatorWrapper}>
-          <ActivityIndicator size="large" color={colors.iconColor} />
-          <Text style={styles.indicatorText}>Cargando artículo...</Text>
-        </View>
+        <SkeletonIndicator
+          blocks={1}
+          width={280}
+          height={280}
+          vAlign="center"
+          lines={3}
+        />
       ) : (
         <>
           <ImageBackground

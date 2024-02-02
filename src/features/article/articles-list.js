@@ -17,6 +17,9 @@ const ArticlesList = ({ category, navigation, route }) => {
 
   useEffect(() => {
     const loadArticlesByCategory = async (categoryName) => {
+      if (!categoryName) {
+        return;
+      }
       try {
         let articles = await fetch(
           `${backendBaseURL}/articles/latest/${categoryName}`,
