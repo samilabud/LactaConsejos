@@ -108,15 +108,6 @@ const ArticlesList = ({ category, navigation, route }) => {
     },
   });
 
-  // const goToArticle = (navigation, item) => {
-  //   navigation.dispatch(
-  //     CommonActions.navigate({
-  //       name: "ArticleStackDetails",
-  //       params: item,
-  //     }),
-  //   );
-  // };
-
   return (
     dataArticles && (
       <View style={styles.articlesListContainer}>
