@@ -47,7 +47,8 @@ const ArticleDetails = ({ route, navigation }) => {
       }
       setIsLoading(false);
     };
-    loadData();
+    setIsLoading(true);
+    // loadData();
   }, [urlID]);
 
   const shareLink = async () => {
@@ -152,13 +153,12 @@ const ArticleDetails = ({ route, navigation }) => {
   const { width } = useWindowDimensions();
   return (
     <View style={styles.articleContainer}>
-      {isLoading && (
+      {isLoading || !hasRoutePostData ? (
         <View style={styles.indicatorWrapper}>
           <ActivityIndicator size="large" color={colors.iconColor} />
           <Text style={styles.indicatorText}>Cargando artículo...</Text>
         </View>
-      )}
-      {hasRoutePostData && (
+      ) : (
         <>
           <ImageBackground
             blurRadius={5}
