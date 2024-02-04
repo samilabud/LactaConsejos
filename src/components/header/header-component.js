@@ -16,11 +16,7 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import * as Font from "expo-font";
 
-type HeaderComponentProps = {
-  navigation: any;
-};
-
-const Header: FunctionComponent<HeaderComponentProps> = (props) => {
+const Header = (props) => {
   const { colors } = lightTheme;
   const [countPressed, setCountPressed] = useState(0);
   const [activateHiddenEffect, setActivateHiddenEffect] = useState(false);

@@ -1,18 +1,13 @@
 import { useState, useEffect } from "react";
 import Header from "../../components/header/header-component";
 import ArticlesList from "../article/articles-list";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  ActivityIndicator,
-} from "react-native";
+import { View, StyleSheet, ScrollView, Dimensions } from "react-native";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import { backendBaseURL } from "../../global";
+import SkeletonIndicator from "../../components/indicators/skeleton-indicator";
 
 const HomeScreen = ({ navigation }) => {
-  const [dataCategories, setDataCategories] = useState();
+  const [dataCategories, setDataCategories] = useState(false);
   const { colors } = lightTheme;
 
   const styles = StyleSheet.create({
@@ -26,15 +21,6 @@ const HomeScreen = ({ navigation }) => {
     postContainer: {
       flex: 1,
       marginTop: 10,
-    },
-    indicatorWrapper: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    indicatorText: {
-      fontSize: 18,
-      marginTop: 12,
     },
   });
   useEffect(() => {
@@ -51,7 +37,9 @@ const HomeScreen = ({ navigation }) => {
     loadCategories();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
+  const windowDimensions = Dimensions.get("window");
+  const skeletonWidth = Math.round(windowDimensions.width / 2) - 20;
+  const skeletonHeigth = skeletonWidth;
   return (
     <View style={styles.container}>
       <Header navigation={navigation} />
@@ -64,10 +52,13 @@ const HomeScreen = ({ navigation }) => {
           ))}
         </ScrollView>
       ) : (
-        <View style={styles.indicatorWrapper}>
-          <ActivityIndicator size="large" color={colors.iconColor} />
-          <Text style={styles.indicatorText}>Cargando artículos...</Text>
-        </View>
+        <ScrollView style={styles.articlesContainer}>
+          <SkeletonIndicator
+            blocks={6}
+            width={skeletonWidth}
+            height={skeletonHeigth}
+          />
+        </ScrollView>
       )}
     </View>
   );

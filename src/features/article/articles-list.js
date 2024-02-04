@@ -10,7 +10,6 @@ import {
 import { Image } from "@rneui/themed";
 import { backendBaseURL } from "../../global";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
-import { CommonActions } from "@react-navigation/native";
 
 const ArticlesList = ({ category, navigation, route }) => {
   const [dataArticles, setDataArticles] = useState(null);
@@ -18,6 +17,9 @@ const ArticlesList = ({ category, navigation, route }) => {
 
   useEffect(() => {
     const loadArticlesByCategory = async (categoryName) => {
+      if (!categoryName) {
+        return;
+      }
       try {
         let articles = await fetch(
           `${backendBaseURL}/articles/latest/${categoryName}`,
@@ -108,15 +110,6 @@ const ArticlesList = ({ category, navigation, route }) => {
     },
   });
 
-  // const goToArticle = (navigation, item) => {
-  //   navigation.dispatch(
-  //     CommonActions.navigate({
-  //       name: "ArticleStackDetails",
-  //       params: item,
-  //     }),
-  //   );
-  // };
-
   return (
     dataArticles && (
       <View style={styles.articlesListContainer}>
@@ -143,7 +136,6 @@ const ArticlesList = ({ category, navigation, route }) => {
                 style={styles.article}
                 activeOpacity={0.8}
                 onPress={() => navigation.navigate("ArticleStackDetails", item)}
-                // onPress={() => goToArticle(navigation, item)}
               >
                 <Image
                   source={{
