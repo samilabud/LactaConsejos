@@ -34,7 +34,7 @@ const HomeScreen = ({ navigation }) => {
         console.log(err, `Could not load the categories`);
       }
     };
-    // loadCategories();
+    loadCategories();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const skeletonWidth = PixelRatio.getPixelSizeForLayoutSize(70);
