@@ -49,7 +49,9 @@ const HomeScreen = ({ navigation }) => {
           ))}
         </ScrollView>
       ) : (
-        <SkeletonIndicator blocks={6} width={180} height={180} />
+        <ScrollView style={styles.articlesContainer}>
+          <SkeletonIndicator blocks={6} width={180} height={180} />
+        </ScrollView>
       )}
     </View>
   );
