@@ -30,6 +30,7 @@ const SkeletonIndicator = ({
               width={width}
               height={height}
               borderRadius={10}
+              marginTop={11}
             />
             <SkeletonPlaceholder.Item>
               {skeletonLines.map((val) => (

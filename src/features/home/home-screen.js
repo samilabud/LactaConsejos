@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "../../components/header/header-component";
 import ArticlesList from "../article/articles-list";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, PixelRatio } from "react-native";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
 import { backendBaseURL } from "../../global";
 import SkeletonIndicator from "../../components/indicators/skeleton-indicator";
@@ -34,9 +34,11 @@ const HomeScreen = ({ navigation }) => {
         console.log(err, `Could not load the categories`);
       }
     };
-    loadCategories();
+    // loadCategories();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  const skeletonWidth = PixelRatio.getPixelSizeForLayoutSize(70);
+  const skeletonHeigth = PixelRatio.getPixelSizeForLayoutSize(70);
   return (
     <View style={styles.container}>
       <Header navigation={navigation} />
@@ -50,7 +52,11 @@ const HomeScreen = ({ navigation }) => {
         </ScrollView>
       ) : (
         <ScrollView style={styles.articlesContainer}>
-          <SkeletonIndicator blocks={6} width={180} height={180} />
+          <SkeletonIndicator
+            blocks={6}
+            width={skeletonWidth}
+            height={skeletonHeigth}
+          />
         </ScrollView>
       )}
     </View>
