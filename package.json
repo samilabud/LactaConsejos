@@ -1,6 +1,6 @@
 {
   "name": "lactaconsejos",
-  "version": "4.1.6",
+  "version": "5.4.1",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
