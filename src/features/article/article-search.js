@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  ActivityIndicator,
-  TouchableOpacity,
-  ImageBackground,
-} from "react-native";
-import { Image, Input, Icon } from "@rneui/themed";
 import * as Font from "expo-font";
-import { backendBaseURL } from "../../global";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { backendBaseURL } from "../../global";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
+import {
+  ActivityIndicator,
+  FlatList,
+  ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { Icon, Image, Input } from "@rneui/themed";
+import React, { useEffect, useState } from "react";
 
 const theLobsterFont = {
   "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
@@ -67,7 +67,6 @@ const ArticleSearch = ({ route, navigation }) => {
     },
     imageBackgroundContainer: {
       flex: 0.3,
-      justifyContent: "center",
       alignContent: "space-between",
       justifyContent: "space-between",
       minHeight: 120,

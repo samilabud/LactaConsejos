@@ -1,7 +1,8 @@
-import { Text } from "react-native";
-import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import ArticleNavigator from "../../screens/articles/article-stack-screen";
+import React from "react";
+import { Text } from "react-native";
 import { linkingConfig } from "../navigation/linking.config";
+import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 
 const MyTheme = {
   ...DefaultTheme,

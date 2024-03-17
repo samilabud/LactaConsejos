@@ -1,17 +1,17 @@
-import { useEffect, useState } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  ActivityIndicator,
-  TouchableOpacity,
-} from "react-native";
 import { Image } from "@rneui/themed";
 import { backendBaseURL } from "../../global";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useEffect, useState } from "react";
 
-const ArticlesList = ({ category, navigation, route }) => {
+const ArticlesList = ({ category, navigation }) => {
   const [dataArticles, setDataArticles] = useState(null);
   const { colors } = lightTheme;
 

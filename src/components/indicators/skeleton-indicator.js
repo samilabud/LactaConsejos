@@ -1,5 +1,6 @@
+import React from "react";
 import SkeletonPlaceholder from "expo-react-native-skeleton-placeholder";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 const SkeletonIndicator = ({
   blocks,

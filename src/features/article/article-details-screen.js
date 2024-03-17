@@ -1,22 +1,23 @@
-import { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  ScrollView,
-  useWindowDimensions,
-  ImageBackground,
-  ActivityIndicator,
-} from "react-native";
-import { lightTheme } from "../../infrastructure/theme/default.theme";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import * as Font from "expo-font";
-import RenderHTML from "react-native-render-html";
 import { Image } from "@rneui/themed";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import React from "react";
+import RenderHTML from "react-native-render-html";
 import { Share } from "react-native";
-import { backendBaseURL, frontendRedirectorUrl } from "../../global";
 import SkeletonIndicator from "../../components/indicators/skeleton-indicator";
+import { lightTheme } from "../../infrastructure/theme/default.theme";
+import {
+  ActivityIndicator,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  useWindowDimensions,
+} from "react-native";
+import { backendBaseURL, frontendRedirectorUrl } from "../../global";
+import { useEffect, useState } from "react";
 
 const theLobsterFont = {
   "Lobster-Regular": require("../../../assets/fonts/Lobster-Regular.ttf"),
@@ -115,7 +116,6 @@ const ArticleDetails = ({ route, navigation }) => {
     },
     image: {
       flex: 0.6,
-      justifyContent: "center",
       alignContent: "space-between",
       justifyContent: "space-between",
     },

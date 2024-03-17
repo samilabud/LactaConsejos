@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import Header from "../../components/header/header-component";
 import ArticlesList from "../article/articles-list";
-import { View, StyleSheet, ScrollView, Dimensions } from "react-native";
-import { lightTheme } from "../../infrastructure/theme/default.theme";
-import { backendBaseURL } from "../../global";
+import Header from "../../components/header/header-component";
+import React from "react";
 import SkeletonIndicator from "../../components/indicators/skeleton-indicator";
+import { backendBaseURL } from "../../global";
+import { lightTheme } from "../../infrastructure/theme/default.theme";
+import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
+import { useEffect, useState } from "react";
 
 const HomeScreen = ({ navigation }) => {
   const [dataCategories, setDataCategories] = useState(false);
@@ -31,11 +32,10 @@ const HomeScreen = ({ navigation }) => {
         });
         setDataCategories(await response?.json());
       } catch (err) {
-        console.log(err, `Could not load the categories`);
+        console.log(err, "Could not load the categories");
       }
     };
     loadCategories();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const windowDimensions = Dimensions.get("window");
   const skeletonWidth = Math.round(windowDimensions.width / 2) - 20;

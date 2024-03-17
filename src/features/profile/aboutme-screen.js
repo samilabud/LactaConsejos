@@ -1,13 +1,14 @@
-import {
-  View,
-  Image,
-  StyleSheet,
-  Linking,
-  TouchableOpacity,
-} from "react-native";
 import { List } from "react-native-paper";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import React from "react";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import {
+  Image,
+  Linking,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 const profileImage = require("../../../assets/fotos/profile/paola-profile.png");
 

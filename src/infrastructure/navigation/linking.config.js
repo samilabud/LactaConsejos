@@ -1,5 +1,5 @@
-import { frontendBaseURL, frontendHost } from "../../global";
 import * as Linking from "expo-linking";
+import { frontendBaseURL, frontendHost } from "../../global";
 
 //https://reactnavigation.org/docs/deep-linking
 //https://reactnavigation.org/docs/navigation-container/#linkingconfig

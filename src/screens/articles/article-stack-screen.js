@@ -1,17 +1,16 @@
-import React from "react";
-import { Ionicons } from "@expo/vector-icons";
-// import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  createStackNavigator,
-  TransitionPresets,
-} from "@react-navigation/stack";
-import HomeScreen from "../../features/home/home-screen";
+import AboutMe from "../../features/profile/aboutme-screen";
 import ArticleDetailScreen from "../../features/article/article-details-screen";
 import ArticleSearch from "../../features/article/article-search";
+import HomeScreen from "../../features/home/home-screen";
+import { Ionicons } from "@expo/vector-icons";
 import NotFoundScreen from "../404/NotFound";
+import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import AboutMe from "../../features/profile/aboutme-screen";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
+import {
+  TransitionPresets,
+  createStackNavigator,
+} from "@react-navigation/stack";
 
 const Tab = createBottomTabNavigator();
 const ArticleStack = createStackNavigator();
@@ -43,6 +42,7 @@ const TAB_ICON_OUTLINE = {
 
 const tabBarIcon =
   (routeName) =>
+  // eslint-disable-next-line react/display-name
   ({ focused, size, color }) => {
     const iconName = focused
       ? TAB_ICON_FOCUSED[routeName]

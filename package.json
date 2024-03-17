@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "lint": "eslint ./src --fix"
   },
   "dependencies": {
     "@expo/config-plugins": "7.2.2",
@@ -48,6 +49,10 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@types/node": "^20.11.16",
+    "eslint": "^8.57.0",
+    "eslint-plugin-autofix": "^1.1.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-simple-import-sort": "^12.0.0",
     "prettier": "3.0.3",
     "react-native-svg-transformer": "^1.1.0",
     "typescript": "^5.2.2"

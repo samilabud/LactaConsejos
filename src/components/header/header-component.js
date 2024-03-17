@@ -1,20 +1,19 @@
-//@ts-ignore
-import React, { FunctionComponent, useState } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  Image,
-  Pressable,
-  TouchableOpacity,
-  StatusBar,
-} from "react-native";
+import * as Font from "expo-font";
 import { Header as HeaderRNE } from "@rneui/themed";
-import { useSpring, animated } from "@react-spring/web";
 import { LinearGradient } from "expo-linear-gradient";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
-import * as Font from "expo-font";
+import {
+  Image,
+  Pressable,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import React, { useState } from "react";
+import { animated, useSpring } from "@react-spring/web";
 
 const Header = (props) => {
   const { colors } = lightTheme;
