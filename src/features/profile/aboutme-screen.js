@@ -5,9 +5,9 @@ import {
   Linking,
   TouchableOpacity,
 } from "react-native";
+import { List } from "react-native-paper";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { lightTheme } from "../../infrastructure/theme/default.theme";
-import { List } from "react-native-paper";
 
 const profileImage = require("../../../assets/fotos/profile/paola-profile.png");
 
