@@ -21,7 +21,7 @@
       "buildNumber": "6.0.6"
     },
     "android": {
-      "versionCode": 21,
+      "versionCode": 22,
       "intentFilters": [
         {
           "action": "VIEW",
@@ -52,9 +52,7 @@
     "updates": {
       "url": "https://u.expo.dev/a7e3c7c3-0d92-492e-bd5a-90c8454578b7"
     },
-    "plugins": [
-      "expo-router"
-    ],
+    "plugins": [],
     "scheme": "lactaconsejos"
   }
 }
