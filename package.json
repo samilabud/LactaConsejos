@@ -25,6 +25,8 @@
     "@babel/preset-env": "^7.28.3",
     "@babel/preset-react": "^7.27.1",
     "@expo/vector-icons": "^15.0.2",
+    "@react-native-community/cli": "^20.0.2",
+    "@react-native-community/cli-platform-android": "^20.0.2",
     "@react-native-masked-view/masked-view": "0.3.2",
     "@react-navigation/bottom-tabs": "^7.4.0",
     "@react-navigation/native": "^7.1.8",

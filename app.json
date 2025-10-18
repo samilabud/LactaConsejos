@@ -21,7 +21,7 @@
       "buildNumber": "6.0.6"
     },
     "android": {
-      "versionCode": 20,
+      "versionCode": 21,
       "intentFilters": [
         {
           "action": "VIEW",
