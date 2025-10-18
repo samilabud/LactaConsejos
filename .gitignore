@@ -75,7 +75,5 @@ yarn-error.*
 
 # @end expo-cli
 
-android/
-ios/
 # Local Netlify folder
 .netlify
