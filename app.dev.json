@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "LactaConsejos",
+    "name": "LactaConsejos (Dev)",
     "slug": "LactaConsejos",
     "version": "6.0.1",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.samilabud.LactaConsejos",
+      "bundleIdentifier": "com.samilabud.LactaConsejos.dev",
       "buildNumber": "6.0.1"
     },
     "android": {
@@ -39,7 +39,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#EED1CA"
       },
-      "package": "com.samilabud.LactaConsejos"
+      "package": "com.samilabud.LactaConsejos.dev"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -48,7 +48,7 @@
       "eas": {
         "projectId": "a7e3c7c3-0d92-492e-bd5a-90c8454578b7"
       },
-      "environment": "production"
+      "environment": "development"
     },
     "runtimeVersion": {
       "policy": "appVersion"
