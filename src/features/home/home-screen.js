@@ -21,7 +21,8 @@ const HomeScreen = ({ navigation }) => {
     },
     postContainer: {
       flex: 1,
-      marginTop: 10,
+      marginTop: 16,
+      marginBottom: 8,
     },
   });
   useEffect(() => {

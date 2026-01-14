@@ -40,73 +40,89 @@ const ArticlesList = ({ category, navigation }) => {
     articlesListContainer: {
       flex: 1,
       width: "auto",
+      marginBottom: 24,
     },
     titleContainer: {
       flex: 1,
       width: "auto",
       justifyContent: "space-between",
       flexDirection: "row",
-      paddingHorizontal: 12,
-      paddingBottom: 4,
+      alignItems: "center",
+      paddingHorizontal: 16,
+      paddingBottom: 8,
+      paddingTop: 4,
       flexWrap: "nowrap",
     },
     title: {
-      fontSize: 14,
-      fontWeight: "bold",
+      fontSize: 15,
+      fontWeight: "700",
       textTransform: "uppercase",
+      letterSpacing: 0.5,
       color: colors.text,
+      flex: 1,
     },
     seeAll: {
-      color: colors.anchorText,
-      fontVariant: "small-caps",
+      color: colors.accent,
+      fontSize: 14,
+      fontWeight: "600",
     },
     articlesContainer: {
       width: "auto",
-      height: 180,
-      marginTop: 10,
+      height: 200,
+      marginTop: 8,
     },
     listContainer: {
-      width: "auto",
+      paddingLeft: 16,
+      paddingRight: 8,
       height: "auto",
-      marginLeft: 10,
     },
     list: {
       width: "auto",
       height: "auto",
     },
     article: {
-      flex: 1,
-      marginLeft: 10,
-      height: 165,
+      marginRight: 12,
+      height: 180,
       width: 165,
+      backgroundColor: colors.surfaceBackgroundColor,
+      borderRadius: 12,
+      borderWidth: 1.5,
+      borderColor: colors.borderColor,
+      overflow: "hidden",
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      shadowOpacity: 0.1,
+      shadowRadius: 4,
+      elevation: 3,
     },
     articleImage: {
-      flex: 1,
-      aspectRatio: 1,
       width: "100%",
-      height: "100%",
-      borderRadius: 10,
-      borderColor: colors.borderColor,
-      borderWidth: 1,
-      alignSelf: "center",
+      height: 130,
+      borderTopLeftRadius: 12,
+      borderTopRightRadius: 12,
     },
     articleTextContainer: {
-      flex: 1,
       position: "absolute",
-      width: "97.8%",
-      marginTop: 145,
-      marginStart: 2,
-      shadowOpacity: 0.8,
-      shadowOffset: { width: 1, height: 5 },
+      bottom: 0,
+      left: 0,
+      right: 0,
       backgroundColor: colors.onSurface,
-      opacity: 0.8,
-      borderRadius: 7,
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+      borderBottomLeftRadius: 12,
+      borderBottomRightRadius: 12,
+      minHeight: 50,
+      justifyContent: "center",
     },
     articleText: {
       color: colors.accent,
-      fontSize: 14,
-      fontWeight: "700",
-      textAlign: "center",
+      fontSize: 13,
+      fontWeight: "600",
+      textAlign: "left",
+      lineHeight: 18,
     },
   });
 
@@ -143,14 +159,14 @@ const ArticlesList = ({ category, navigation }) => {
                   }}
                   containerStyle={styles.articleImage}
                   PlaceholderContent={
-                    <ActivityIndicator color={"red"} size={"large"} />
+                    <ActivityIndicator color={colors.accent} size={"large"} />
                   }
                   transition={true}
                   transitionDuration={500}
-                  resizeMode="contain"
+                  resizeMode="cover"
                 />
                 <View style={styles.articleTextContainer}>
-                  <Text style={styles.articleText} numberOfLines={1}>
+                  <Text style={styles.articleText} numberOfLines={2}>
                     {item.title}
                   </Text>
                 </View>

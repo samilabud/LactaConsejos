@@ -6,20 +6,29 @@ export const lightTheme = {
   dark: false,
   colors: {
     ...DefaultTheme.colors,
-    primary: "#EED1CA", //first color of gradient in header
-    secondary: "#F3D1D4", //second color of gradient in header
-    accent: "#ee5f9b", //heading text (logo and article's titles)
-    anchorText: "#a81d4d", //anchor-links color (see all)
-    onSurface: "#FFFFFF", //background for tile text in article list
-    background: "#FFFFFF", //background for details, below of headers,
-    borderColor: "#a81d4d", //border color for articles
-    activeTabTint: "#a81d4d",
-    inactiveTabTint: "#ee5f9b",
-    inactiveTabBackground: "#EED1CA", //primary
-    surfaceBackgroundColor: "#F3D1D4", //secondary
-    iconColor: "#ee5f9b",
-    inactiveIconColor: "f18db5",
+    // Main brand pinks (from logo / website)
+    primary: "#F8C8D8", // light pink - header gradient start / surfaces
+    secondary: "#FDE3EC", // very light pink - header gradient end / backgrounds
+
+    // Typography / accents
+    accent: "#EC5E98", // strong pink accent - buttons, highlights
+    anchorText: "#EC5E98", // links (e.g. "Leer más")
+    text: "#5E3C3C", // main text - warm brown like site headings
+
+    // Backgrounds & surfaces
+    background: "#FFF9FB", // app background
+    surfaceBackgroundColor: "#FFFFFF", // cards / tiles
+    onSurface: "#FFFFFF", // text background in elevated cards
+
+    // Borders & tabs
+    borderColor: "#F3B2C9",
+    activeTabTint: "#EC5E98",
+    inactiveTabTint: "#B28A8A",
+    inactiveTabBackground: "#FDE3EC",
+
+    // Icons
+    iconColor: "#EC5E98",
+    inactiveIconColor: "#D9A7C4",
     iconBackground: "#FFFFFF",
-    text: "#ee5f9b", //section Title Color
   },
 };

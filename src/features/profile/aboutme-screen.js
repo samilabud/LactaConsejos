@@ -78,7 +78,7 @@ const AboutMe = () => {
           onPress={() => openURL("mailto:paolavirginiaguzman@gmail.com")}
         >
           <List.Item
-            title="paolavirginiaguzman@gmail.com"
+            title="paolavirginia.guzman@gmail.com"
             description="Correo Electrónico"
             titleStyle={{ color: colors.text }}
             descriptionStyle={{ color: colors.accent }}
@@ -87,10 +87,10 @@ const AboutMe = () => {
         </TouchableOpacity>
         <TouchableOpacity
           activeOpacity={0.6}
-          onPress={() => openURL("https://www.instagram.com/lactaconsejosrd/")}
+          onPress={() => openURL("https://www.instagram.com/lacta.consejos/")}
         >
           <List.Item
-            title="lactaconsejosrd"
+            title="lacta.consejos"
             description="Instagram"
             titleStyle={{ color: colors.text }}
             descriptionStyle={{ color: colors.accent }}

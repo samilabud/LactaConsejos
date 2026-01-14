@@ -3,9 +3,10 @@ import { Platform } from "react-native";
 
 // Environment detection
 // eslint-disable-next-line no-undef
-const isDevelopment =
-  (typeof __DEV__ !== "undefined" ? __DEV__ : false) ||
-  Constants.expoConfig?.extra?.environment === "development";
+// const isDevelopment =
+//   (typeof __DEV__ !== "undefined" ? __DEV__ : false) ||
+//   Constants.expoConfig?.extra?.environment === "development";
+const isDevelopment = false;
 const isProduction = !isDevelopment;
 
 // Frontend URLs (same for both environments)
