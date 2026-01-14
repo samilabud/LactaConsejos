@@ -159,14 +159,14 @@ const ArticlesList = ({ category, navigation }) => {
                   }}
                   containerStyle={styles.articleImage}
                   PlaceholderContent={
-                    <ActivityIndicator color={colors.accent} size={"large"} />
+                    <ActivityIndicator color={"red"} size={"large"} />
                   }
                   transition={true}
                   transitionDuration={500}
-                  resizeMode="cover"
+                  resizeMode="contain"
                 />
                 <View style={styles.articleTextContainer}>
-                  <Text style={styles.articleText} numberOfLines={2}>
+                  <Text style={styles.articleText} numberOfLines={1}>
                     {item.title}
                   </Text>
                 </View>
